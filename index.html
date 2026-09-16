@@ -200,6 +200,38 @@
   /* Teasers */
   .teaser p{font-size:16px; color:var(--muted); max-width:560px; margin-bottom:28px;}
 
+  /* STATS STRIP */
+  .stats-strip{border-bottom:1px solid var(--line); position:relative;}
+  .stats-grid{display:grid; grid-template-columns:repeat(3,1fr); padding:44px 0;}
+  .stat{text-align:center; padding:0 20px; border-left:1px solid var(--line);}
+  .stat:first-child{border-left:none;}
+  .stat .stat-num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(28px,4vw,40px); color:var(--cloud);}
+  .stat .stat-label{font-size:13px; color:var(--muted); margin-top:6px;}
+  @media(max-width:640px){ .stats-grid{grid-template-columns:1fr; gap:24px;} .stat{border-left:none; border-top:1px solid var(--line); padding-top:24px;} .stat:first-child{border-top:none; padding-top:0;} }
+
+  /* HOME — work preview grid */
+  .work-preview{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px;}
+  .work-preview-card{
+    position:relative; border-radius:12px; overflow:hidden; border:1px solid var(--line);
+    background:#000; aspect-ratio:4/3; text-decoration:none; display:block;
+  }
+  .work-preview-card img{width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .4s ease;}
+  .work-preview-card:hover img{transform:scale(1.06);}
+  .work-preview-card .wp-label{
+    position:absolute; left:0; right:0; bottom:0; padding:10px 12px;
+    background:linear-gradient(to top, rgba(10,12,15,0.95), transparent);
+    font-size:12.5px; font-weight:700; color:var(--text);
+  }
+  @media(max-width:800px){ .work-preview{grid-template-columns:repeat(2,1fr);} }
+
+  /* HOME — pricing preview */
+  .pricing-preview{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:28px;}
+  .pp-card{background:var(--panel); padding:22px 20px;}
+  .pp-card h4{font-size:14.5px; font-weight:700; margin-bottom:8px;}
+  .pp-card .pp-amount{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; color:var(--cloud);}
+  .pp-card .pp-amount span{font-size:12px; font-weight:500; color:var(--muted); margin-left:3px;}
+  @media(max-width:800px){ .pricing-preview{grid-template-columns:1fr;} }
+
   /* FOOTER (lightweight CTA, full form lives on contact.html) */
   footer{padding:100px 0 60px;}
   footer h2{font-size:clamp(28px,4vw,42px); max-width:640px; margin-bottom:20px;}
@@ -277,6 +309,25 @@
   </div>
 </header>
 
+<div class="stats-strip">
+  <div class="wrap">
+    <div class="stats-grid reveal">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">AI products shipped &amp; self-hosted</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Custom-built — no page builders</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6mo</div>
+        <div class="stat-label">Free bug-fix support included</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <section>
   <div class="wrap">
     <div class="section-head reveal">
@@ -300,7 +351,25 @@
       <div class="section-label">// selected work</div>
       <h2>Products and business sites, shipped end to end</h2>
     </div>
-    <p>Two self-built AI products, a lead-gen concept site, and a live e-commerce build for a real client — TXL Cloud, TXL GPT, BFL Infra, and Base Fragrances.</p>
+    <div class="work-preview reveal">
+      <a class="work-preview-card tilt" href="work.html#case-cloud">
+        <img src="images/txlcloud_2_landing.png" alt="TXL Cloud landing screen" loading="lazy">
+        <div class="wp-label">TXL Cloud</div>
+      </a>
+      <a class="work-preview-card tilt" href="work.html#case-gpt">
+        <img src="images/txlgpt_3_response.png" alt="TXL GPT streamed response" loading="lazy">
+        <div class="wp-label">TXL GPT</div>
+      </a>
+      <a class="work-preview-card tilt" href="work.html#case-bfl">
+        <img src="images/bflinfra_1_hero.png" alt="BFL Infra homepage hero" loading="lazy">
+        <div class="wp-label">BFL Infra</div>
+      </a>
+      <a class="work-preview-card tilt" href="work.html#case-base">
+        <img src="images/basefragrances_1_hero.png" alt="Base Fragrances homepage hero" loading="lazy">
+        <div class="wp-label">Base Fragrances</div>
+      </a>
+    </div>
+    <p>Two self-built AI products, a lead-gen concept site, and a live e-commerce build for a real client.</p>
     <a class="btn btn-primary" href="work.html">See the full work →</a>
   </div>
 </section>
@@ -311,7 +380,21 @@
       <div class="section-label">// pricing</div>
       <h2>Straightforward pricing, no surprises</h2>
     </div>
-    <p>Websites from ₹8,000, dashboards from ₹20,000, AI chatbots from ₹12,000 — founding client pricing available for my first few clients.</p>
+    <div class="pricing-preview reveal">
+      <div class="pp-card">
+        <h4>Websites</h4>
+        <div class="pp-amount">&#8377;8,000<span>starting</span></div>
+      </div>
+      <div class="pp-card">
+        <h4>Dashboards</h4>
+        <div class="pp-amount">&#8377;20,000<span>starting</span></div>
+      </div>
+      <div class="pp-card">
+        <h4>AI Chatbots</h4>
+        <div class="pp-amount">&#8377;12,000<span>starting</span></div>
+      </div>
+    </div>
+    <p>Founding client pricing available for my first few clients — 6 months of free bug-fixing support on every project.</p>
     <a class="btn btn-primary" href="pricing.html">See full pricing →</a>
   </div>
 </section>
