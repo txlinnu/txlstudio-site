@@ -385,8 +385,22 @@
     });
   }
 
+  function initScrollTop(){
+    var btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+    function toggle(){
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+    toggle();
+  }
+
   function initAll(){
-    initBackground(); initTilt(); initCarousel(); initMobileNav(); initContactForm(); initReveal();
+    initBackground(); initTilt(); initCarousel(); initMobileNav(); initContactForm(); initReveal(); initScrollTop();
   }
 
   if (document.readyState === 'loading') {

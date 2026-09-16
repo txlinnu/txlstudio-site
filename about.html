@@ -84,11 +84,13 @@
   }
   @keyframes navshimmer{ 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
   nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px; position:relative;}
-  .brand{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:17px;}
+  .brand{display:flex; align-items:center; gap:12px; font-family:'Space Grotesk',sans-serif; font-size:17px;}
   .brand-mark{
-    height:30px; width:auto; border-radius:4px;
+    height:34px; width:auto; border-radius:4px;
     display:block;
   }
+  .brand-divider{width:1px; height:20px; background:var(--line);}
+  .brand-word{font-weight:500; color:var(--muted); letter-spacing:0.3px;}
   nav ul{list-style:none; display:flex; gap:32px; font-size:14px; color:var(--muted);}
   nav ul li{position:relative;}
   nav ul a{position:relative; text-decoration:none; padding-bottom:4px; display:inline-block;}
@@ -119,6 +121,18 @@
   .nav-mobile .wrap{ display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; height:auto; padding:6px 28px 18px; }
   .nav-mobile a{ padding:12px 2px; font-size:15px; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
   .nav-mobile a:hover{ color:var(--text); }
+
+  .scroll-top-btn{
+    position:fixed; right:26px; bottom:26px; z-index:60;
+    width:48px; height:48px; border-radius:50%; border:none; cursor:pointer;
+    background:var(--cloud); color:#0a0c0f;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 34px -10px rgba(0,0,0,0.55);
+    opacity:0; visibility:hidden; transform:translateY(12px);
+    transition:opacity .25s ease, transform .25s ease, visibility .25s, filter .2s ease;
+  }
+  .scroll-top-btn.visible{ opacity:1; visibility:visible; transform:translateY(0); }
+  .scroll-top-btn:hover{ filter:brightness(1.1); }
   @media(max-width:720px){
     nav ul{display:none;}
     .nav-toggle{display:flex;}
@@ -242,22 +256,22 @@
 
 <nav>
   <div class="wrap">
-    <a href="index.html" style="text-decoration:none;"><div class="brand"><img class="brand-mark tilt" data-tilt-strength="1.8" src="favicon.svg" alt="TXL Studio logo">Studio</div></a>
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><img class="brand-mark tilt" data-tilt-strength="1.8" src="favicon.svg" alt="TXL Studio logo"><span class="brand-divider"></span><span class="brand-word">Studio</span></div></a>
     <ul>
-      <li><a href="index.html#work">Work</a></li>
-      <li><a href="index.html#engineering">Engineering</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a class="nav-cta" href="index.html#contact">Hire me</a>
+      <a class="nav-cta" href="contact.html">Hire me</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="nav-mobile" id="navMobile">
     <div class="wrap">
-      <a href="index.html#work">Work</a>
-      <a href="index.html#engineering">Engineering</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
@@ -345,15 +359,15 @@
   </div>
 </section>
 
-<footer id="contact">
+<footer>
   <div class="wrap">
     <div class="section-label">// let's build something</div>
     <h2>Have a project in mind?</h2>
     <p class="sub">I take on freelance builds across web development, dashboards, and custom AI tools. Let's talk about what you're building.</p>
     <div class="contact-row">
-      <a class="btn btn-primary" href="mailto:help.txlcustomer@gmail.com">Email me</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/txl.studio" target="_blank">@txl.studio on Instagram</a>
-      <a class="btn btn-ghost" href="index.html">← Back to work</a>
+      <a class="btn btn-primary" href="contact.html">Start a project →</a>
+      <a class="btn btn-ghost" href="mailto:help.txlcustomer@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="work.html">← Back to work</a>
     </div>
     <div class="foot-bottom">
       <span>TXL Studio — AI &amp; Web</span>
@@ -361,6 +375,10 @@
     </div>
   </div>
 </footer>
+
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0c0f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script src="js/site3d.js" defer></script>
