@@ -13,14 +13,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TXL Studio — AI &amp; Web Developer | Websites, Dashboards &amp; Custom AI Chatbots</title>
-<meta name="description" content="TXL Studio builds websites, dashboards, and custom AI-powered chatbots for businesses. See shipped AI products TXL Cloud and TXL GPT, the Base Fragrances e-commerce build, and business-site design work including BFL Infra.">
-<meta name="keywords" content="TXL Studio, TXL Cloud, TXL GPT, AI chatbot developer, web developer, dashboard developer, freelance developer India">
+<meta name="description" content="TXL Studio builds websites, dashboards, and custom AI-powered chatbots for businesses. See the Base Fragrances e-commerce build and business-site design work including BFL Infra.">
+<meta name="keywords" content="TXL Studio, AI chatbot developer, web developer, dashboard developer, freelance developer India">
 <link rel="canonical" href="https://txlstudio.netlify.app/">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="TXL Studio — AI & Web Developer">
-<meta property="og:description" content="Websites, dashboards, and custom AI chatbots — built end to end. See TXL Cloud, TXL GPT, Base Fragrances, and BFL Infra.">
+<meta property="og:description" content="Websites, dashboards, and custom AI chatbots — built end to end. See Base Fragrances and BFL Infra.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://txlstudio.netlify.app/">
 <meta property="og:image" content="https://txlstudio.netlify.app/og-image.png">
@@ -28,7 +28,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TXL Studio — AI & Web Developer">
-<meta name="twitter:description" content="Websites, dashboards, and custom AI chatbots — built end to end. See TXL Cloud, TXL GPT, Base Fragrances, and BFL Infra.">
+<meta name="twitter:description" content="Websites, dashboards, and custom AI chatbots — built end to end. See Base Fragrances and BFL Infra.">
 <meta name="twitter:image" content="https://txlstudio.netlify.app/og-image.png">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,15 +124,15 @@
 
   .scroll-top-btn{
     position:fixed; right:26px; bottom:26px; z-index:60;
-    width:48px; height:48px; border-radius:50%; border:none; cursor:pointer;
-    background:var(--cloud); color:#0a0c0f;
+    width:48px; height:48px; border-radius:50%; border:1px solid var(--line); cursor:pointer;
+    background:rgba(10,12,15,0.5); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); color:var(--text);
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 14px 34px -10px rgba(0,0,0,0.55);
     opacity:0; visibility:hidden; transform:translateY(12px);
-    transition:opacity .25s ease, transform .25s ease, visibility .25s, filter .2s ease;
+    transition:opacity .25s ease, transform .25s ease, visibility .25s, filter .2s ease, border-color .2s ease;
   }
   .scroll-top-btn.visible{ opacity:1; visibility:visible; transform:translateY(0); }
-  .scroll-top-btn:hover{ filter:brightness(1.1); }
+  .scroll-top-btn:hover{ border-color:var(--cloud); }
   @media(max-width:720px){
     nav ul{display:none;}
     .nav-toggle{display:flex;}
@@ -210,7 +210,7 @@
   @media(max-width:640px){ .stats-grid{grid-template-columns:1fr; gap:24px;} .stat{border-left:none; border-top:1px solid var(--line); padding-top:24px;} .stat:first-child{border-top:none; padding-top:0;} }
 
   /* HOME — work preview grid */
-  .work-preview{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px;}
+  .work-preview{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:36px; max-width:600px;}
   .work-preview-card{
     position:relative; border-radius:12px; overflow:hidden; border:1px solid var(--line);
     background:#000; aspect-ratio:4/3; text-decoration:none; display:block;
@@ -247,7 +247,7 @@
   "url": "https://txlstudio.netlify.app/",
   "image": "https://txlstudio.netlify.app/og-image.png",
   "logo": "https://txlstudio.netlify.app/favicon.svg",
-  "description": "TXL Studio builds websites, dashboards, and custom AI-powered chatbots for businesses, including TXL Cloud, TXL GPT, Base Fragrances, and BFL Infra.",
+  "description": "TXL Studio builds websites, dashboards, and custom AI-powered chatbots for businesses, including Base Fragrances and BFL Infra.",
   "email": "help.txlcustomer@gmail.com",
   "areaServed": "IN",
   "founder": {
@@ -274,9 +274,9 @@
     <a href="index.html" style="text-decoration:none;"><div class="brand"><img class="brand-mark tilt" data-tilt-strength="1.8" src="favicon.svg" alt="TXL Studio logo"><span class="brand-divider"></span><span class="brand-word">Studio</span></div></a>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -287,9 +287,9 @@
   <div class="nav-mobile" id="navMobile">
     <div class="wrap">
       <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
       <a href="work.html">Work</a>
       <a href="pricing.html">Pricing</a>
+      <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
@@ -299,7 +299,7 @@
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span>Available for freelance work</div>
     <h1 class="hero-title">I build AI products <span class="accent">that ship</span> — not demos.</h1>
-    <p class="hero-sub">Websites, dashboards, and AI-powered tools built with Claude &amp; ChatGPT-class models — from browser MVP to signed Windows installer. Two shipped products, and real client work.</p>
+    <p class="hero-sub">Websites, dashboards, and AI-powered tools built with Claude &amp; ChatGPT-class models — custom-built, end to end, backed by real client work.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="work.html">See the work ↓</a>
       <a class="btn btn-ghost" href="contact.html">Start a project</a>
@@ -315,8 +315,8 @@
   <div class="wrap">
     <div class="stats-grid reveal">
       <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label">AI products shipped &amp; self-hosted</div>
+        <div class="stat-num">1</div>
+        <div class="stat-label">Real client project delivered</div>
       </div>
       <div class="stat">
         <div class="stat-num">100%</div>
@@ -354,14 +354,6 @@
       <h2>Products and business sites, shipped end to end</h2>
     </div>
     <div class="work-preview reveal">
-      <a class="work-preview-card tilt" href="work.html#case-cloud">
-        <img src="images/txlcloud_2_landing.png" alt="TXL Cloud landing screen" loading="lazy">
-        <div class="wp-label">TXL Cloud</div>
-      </a>
-      <a class="work-preview-card tilt" href="work.html#case-gpt">
-        <img src="images/txlgpt_3_response.png" alt="TXL GPT streamed response" loading="lazy">
-        <div class="wp-label">TXL GPT</div>
-      </a>
       <a class="work-preview-card tilt" href="work.html#case-bfl">
         <img src="images/bflinfra_1_hero.png" alt="BFL Infra homepage hero" loading="lazy">
         <div class="wp-label">BFL Infra</div>
@@ -371,7 +363,7 @@
         <div class="wp-label">Base Fragrances</div>
       </a>
     </div>
-    <p>Two self-built AI products, a lead-gen concept site, and a live e-commerce build for a real client.</p>
+    <p>A live e-commerce build for a real client, and a lead-gen concept site for a fictional engineering firm.</p>
     <a class="btn btn-primary" href="work.html">See the full work →</a>
   </div>
 </section>
@@ -446,7 +438,7 @@
 </script>
 
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0c0f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eef0f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>

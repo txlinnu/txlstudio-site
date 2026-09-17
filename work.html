@@ -13,14 +13,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — TXL Studio</title>
-<meta name="description" content="See TXL Studio's shipped work: TXL Cloud and TXL GPT (self-built AI products), BFL Infra (lead-gen concept site), and Base Fragrances (live e-commerce build).">
-<meta name="keywords" content="TXL Studio, TXL Cloud, TXL GPT, AI chatbot developer, web developer, dashboard developer, freelance developer India">
+<meta name="description" content="See TXL Studio's shipped work: Base Fragrances (live e-commerce build for a real client) and BFL Infra (lead-gen concept site).">
+<meta name="keywords" content="TXL Studio, AI chatbot developer, web developer, dashboard developer, freelance developer India">
 <link rel="canonical" href="https://txlstudio.netlify.app/work.html">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Work — TXL Studio">
-<meta property="og:description" content="Products and business sites, shipped end to end. See TXL Cloud, TXL GPT, Base Fragrances, and BFL Infra.">
+<meta property="og:description" content="Products and business sites, shipped end to end. See Base Fragrances and BFL Infra.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://txlstudio.netlify.app/work.html">
 <meta property="og:image" content="https://txlstudio.netlify.app/og-image.png">
@@ -28,7 +28,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Work — TXL Studio">
-<meta name="twitter:description" content="Products and business sites, shipped end to end. See TXL Cloud, TXL GPT, Base Fragrances, and BFL Infra.">
+<meta name="twitter:description" content="Products and business sites, shipped end to end. See Base Fragrances and BFL Infra.">
 <meta name="twitter:image" content="https://txlstudio.netlify.app/og-image.png">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,15 +124,15 @@
 
   .scroll-top-btn{
     position:fixed; right:26px; bottom:26px; z-index:60;
-    width:48px; height:48px; border-radius:50%; border:none; cursor:pointer;
-    background:var(--cloud); color:#0a0c0f;
+    width:48px; height:48px; border-radius:50%; border:1px solid var(--line); cursor:pointer;
+    background:rgba(10,12,15,0.5); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); color:var(--text);
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 14px 34px -10px rgba(0,0,0,0.55);
     opacity:0; visibility:hidden; transform:translateY(12px);
-    transition:opacity .25s ease, transform .25s ease, visibility .25s, filter .2s ease;
+    transition:opacity .25s ease, transform .25s ease, visibility .25s, filter .2s ease, border-color .2s ease;
   }
   .scroll-top-btn.visible{ opacity:1; visibility:visible; transform:translateY(0); }
-  .scroll-top-btn:hover{ filter:brightness(1.1); }
+  .scroll-top-btn:hover{ border-color:var(--cloud); }
   @media(max-width:720px){
     nav ul{display:none;}
     .nav-toggle{display:flex;}
@@ -273,9 +273,9 @@
     <a href="index.html" style="text-decoration:none;"><div class="brand"><img class="brand-mark tilt" data-tilt-strength="1.8" src="favicon.svg" alt="TXL Studio logo"><span class="brand-divider"></span><span class="brand-word">Studio</span></div></a>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -286,9 +286,9 @@
   <div class="nav-mobile" id="navMobile">
     <div class="wrap">
       <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
       <a href="work.html">Work</a>
       <a href="pricing.html">Pricing</a>
+      <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
@@ -303,23 +303,7 @@
     <div class="carousel3d reveal">
       <div class="carousel3d-stage" id="carouselStage">
         <div class="carousel3d-ring" id="carouselRing">
-          <div class="carousel3d-card" data-target="#case-cloud" data-accent="cloud" style="--i:0;">
-            <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
-            <div class="carousel3d-shot"><img src="images/txlcloud_2_landing.png" alt="TXL Cloud landing screen" draggable="false"></div>
-            <div class="carousel3d-info">
-              <span class="carousel3d-name">TXL Cloud</span>
-              <span class="carousel3d-tag">Local-first AI chat</span>
-            </div>
-          </div>
-          <div class="carousel3d-card" data-target="#case-gpt" data-accent="gpt" style="--i:1;">
-            <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
-            <div class="carousel3d-shot"><img src="images/txlgpt_3_response.png" alt="TXL GPT streamed response" draggable="false"></div>
-            <div class="carousel3d-info">
-              <span class="carousel3d-name">TXL GPT</span>
-              <span class="carousel3d-tag">Agentic assistant</span>
-            </div>
-          </div>
-          <div class="carousel3d-card" data-target="#case-bfl" data-accent="bfl" style="--i:2;">
+          <div class="carousel3d-card" data-target="#case-bfl" data-accent="bfl" style="--i:0;">
             <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
             <div class="carousel3d-shot"><img src="images/bflinfra_1_hero.png" alt="BFL Infra homepage hero" draggable="false"></div>
             <div class="carousel3d-info">
@@ -327,7 +311,7 @@
               <span class="carousel3d-tag">Business site · lead gen</span>
             </div>
           </div>
-          <div class="carousel3d-card" data-target="#case-base" data-accent="base" style="--i:3;">
+          <div class="carousel3d-card" data-target="#case-base" data-accent="base" style="--i:1;">
             <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
             <div class="carousel3d-shot"><img src="images/basefragrances_1_hero.png" alt="Base Fragrances homepage hero" draggable="false"></div>
             <div class="carousel3d-info">
@@ -342,92 +326,8 @@
   </div>
 </section>
 
-<!-- CASE STUDY: TXL CLOUD -->
-<div class="case reveal" style="border-top:none;" id="case-cloud">
-  <div class="wrap">
-    <div class="case-top">
-      <div class="case-name">
-        <div class="case-mark tilt" data-tilt-strength="1.6" style="background:var(--cloud);">TXL</div>
-        <h2>TXL Cloud</h2>
-      </div>
-      <span class="case-tag">Local-first · unlimited</span>
-    </div>
-    <p class="case-desc">A private alternative to hosted AI chat products. Same UX pattern as the big names — accounts, persistent history, projects, artifacts — but the model runs on hardware you control. No per-day cap, no message ever leaves the machine.</p>
-
-    <div class="shot-grid">
-      <div class="shot-frame tall tilt">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/txlcloud_2_landing.png" alt="TXL Cloud landing screen">
-      </div>
-      <div class="shot-frame tilt">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/txlcloud_1_login.png" alt="TXL Cloud login screen">
-      </div>
-      <div class="shot-frame tilt">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/txlcloud_4_codeblock.png" alt="TXL Cloud code block response">
-      </div>
-    </div>
-
-    <ul class="feat-list">
-      <li>Dual-backend inference — Groq for hosted, local Ollama (Qwen2.5 7B/14B) for private, chosen at startup, zero code duplication</li>
-      <li>Windows installer auto-detects RAM/GPU and only pulls the 14B model on machines that can run it</li>
-      <li>Per-account "Projects" with file upload + TF-IDF retrieval — no embeddings model needed</li>
-      <li>Sandboxed "Code mode" agent: reads/writes files, runs shell commands, fetches URLs — with human approval before any write or command executes</li>
-      <li>Shareable chat links, long-term memory, live Artifacts viewer for HTML/SVG</li>
-      <li>Streamed responses end-to-end via Flask's <code class="mono">stream_with_context</code></li>
-    </ul>
-
-    <div class="case-stack">
-      <span class="chip">Flask</span><span class="chip">SQLAlchemy</span><span class="chip">Ollama</span><span class="chip">Groq</span><span class="chip">Electron</span><span class="chip">NSIS</span><span class="chip">scikit-learn</span><span class="chip">Postgres / Neon</span>
-    </div>
-  </div>
-</div>
-
-<!-- CASE STUDY: TXL GPT -->
-<div class="case reveal" id="case-gpt">
-  <div class="wrap">
-    <div class="case-top">
-      <div class="case-name">
-        <div class="case-mark tilt" data-tilt-strength="1.6" style="background:var(--gpt);">TXL</div>
-        <h2>TXL GPT</h2>
-      </div>
-      <span class="case-tag">Personal assistant · agentic</span>
-    </div>
-    <p class="case-desc">An independent ChatGPT-style product — its own database, accounts, and connector modules, sharing only the Flask/Ollama-or-Groq foundation with TXL Cloud. Broader feature surface, positioned as a personal assistant rather than a coding companion.</p>
-
-    <div class="shot-grid">
-      <div class="shot-frame tall tilt">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/txlgpt_3_response.png" alt="TXL GPT streamed response with sidebar">
-      </div>
-      <div class="shot-frame tilt">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/txlgpt_1_login.png" alt="TXL GPT login screen">
-      </div>
-      <div class="shot-frame tilt">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/txlgpt_2_landing.png" alt="TXL GPT landing with full sidebar">
-      </div>
-    </div>
-
-    <ul class="feat-list">
-      <li>Vision via Qwen2.5-VL, auto-routed the moment an image is attached</li>
-      <li>Image generation through the Gemini image API</li>
-      <li>Web Search (single query) and Deep Research (query splitting + synthesis) via DuckDuckGo + BeautifulSoup</li>
-      <li>"Work agent" — tool-using agent with file access and web search, same approval-gated execution as Cloud's Code mode</li>
-      <li>Custom GPTs — saved system prompts as reusable personas</li>
-      <li>Scheduled/recurring tasks running in a background thread</li>
-    </ul>
-
-    <div class="case-stack">
-      <span class="chip">Flask</span><span class="chip">Qwen2.5-VL</span><span class="chip">Gemini API</span><span class="chip">DuckDuckGo</span><span class="chip">BeautifulSoup</span><span class="chip">Electron</span><span class="chip">NSIS</span>
-    </div>
-  </div>
-</div>
-
 <!-- CASE STUDY: BFL INFRA -->
-<div class="case reveal" id="case-bfl">
+<div class="case reveal" style="border-top:none;" id="case-bfl">
   <div class="wrap">
     <div class="case-top">
       <div class="case-name">
@@ -557,7 +457,7 @@
 </footer>
 
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0c0f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eef0f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
