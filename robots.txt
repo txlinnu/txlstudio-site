@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://txlstudio.netlify.app/sitemap.xml
+Sitemap: https://txlstudio.vercel.app/sitemap.xml
