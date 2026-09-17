@@ -333,26 +333,18 @@
     var submitBtn = document.getElementById('cfSubmit');
     if (!form || !status) return;
 
-    function encode(data){
-      return Object.keys(data).map(function(k){
-        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
-      }).join('&');
-    }
-
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      var data = {};
-      new FormData(form).forEach(function(v, k){ data[k] = v; });
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
       status.textContent = '';
       status.removeAttribute('data-state');
 
-      fetch('/', {
+      fetch(form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(data)
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
       }).then(function(res){
         if (!res.ok) throw new Error('Request failed');
         form.reset();

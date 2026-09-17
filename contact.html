@@ -220,9 +220,8 @@
 
     <div class="contact-divider">or send the details directly</div>
 
-    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact">
-      <p class="hp-field"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+    <form class="contact-form" id="contactForm" name="contact" method="POST" action="https://formspree.io/f/xqpakwgg">
+      <p class="hp-field"><label>Don't fill this out if you're human: <input name="_gotcha"></label></p>
       <div class="field">
         <label for="cf-name">Name</label>
         <input id="cf-name" type="text" name="name" autocomplete="name" required>
