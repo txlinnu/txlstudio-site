@@ -187,9 +187,9 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="work.html">Work</a></li>
+      <li><a href="aegis.html">Aegis</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="aegis.html">Aegis</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -201,9 +201,9 @@
     <div class="wrap">
       <a href="index.html">Home</a>
       <a href="work.html">Work</a>
+      <a href="aegis.html">Aegis</a>
       <a href="pricing.html">Pricing</a>
       <a href="about.html">About Us</a>
-      <a href="aegis.html">Aegis</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
@@ -217,6 +217,7 @@
     <p class="sub">I take on freelance builds across web development, dashboards, and custom AI tools — from a landing page to a full local-first product.</p>
     <div class="contact-row">
       <a class="btn btn-primary" href="mailto:help.txlcustomer@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="tel:+918374367150">+91 83743 67150</a>
       <a class="btn btn-ghost" href="https://www.instagram.com/txl.studio" target="_blank">@txl.studio on Instagram</a>
     </div>
 
@@ -238,16 +239,50 @@
           <option>Website</option>
           <option>Dashboard</option>
           <option>AI Chatbot</option>
+          <option value="Security Report (Aegis)">Security Report (Aegis)</option>
+          <option value="Website + Aegis bundle">Website + Aegis bundle</option>
           <option>Something else</option>
         </select>
       </div>
       <div class="field">
-        <label for="cf-message">What are you building?</label>
-        <textarea id="cf-message" name="message" required></textarea>
+        <label for="cf-message" id="cf-message-label">What are you building?</label>
+        <textarea id="cf-message" name="message" placeholder="e.g. a booking site for my salon" required></textarea>
       </div>
       <button class="btn btn-primary" type="submit" id="cfSubmit">Send message</button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
+
+    <script>
+      (function(){
+        var select = document.getElementById('cf-project');
+        var msg = document.getElementById('cf-message');
+        var msgLabel = document.getElementById('cf-message-label');
+        var aegisCopy = {
+          label: 'What\'s the site, and anything else we should know?',
+          placeholder: 'e.g. yourbusiness.com — live e-commerce site, launching next month'
+        };
+        var defaultCopy = {
+          label: 'What are you building?',
+          placeholder: 'e.g. a booking site for my salon'
+        };
+        function syncMessageField(){
+          var isAegis = select.value.indexOf('Aegis') !== -1;
+          var copy = isAegis ? aegisCopy : defaultCopy;
+          msgLabel.textContent = copy.label;
+          msg.placeholder = copy.placeholder;
+        }
+        select.addEventListener('change', syncMessageField);
+
+        var params = new URLSearchParams(window.location.search);
+        var service = params.get('service');
+        if (service === 'aegis'){
+          select.value = 'Security Report (Aegis)';
+        } else if (service === 'bundle'){
+          select.value = 'Website + Aegis bundle';
+        }
+        syncMessageField();
+      })();
+    </script>
     </div>
 
     <div class="foot-bottom">

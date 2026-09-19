@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — TXL Studio</title>
-<meta name="description" content="TXL Studio pricing — websites from ₹8,000, dashboards from ₹20,000, AI chatbots from ₹12,000. Founding client pricing available now.">
+<meta name="description" content="TXL Studio pricing — websites from ₹8,000, dashboards from ₹20,000, AI chatbots from ₹12,000, TXL Aegis security reports from ₹4,000. Founding client pricing available now.">
 <meta name="keywords" content="TXL Studio pricing, web developer pricing India, dashboard developer pricing, AI chatbot developer pricing">
 <link rel="canonical" href="https://txlstudio.vercel.app/pricing.html">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -163,14 +163,24 @@
     font-size:12.5px; font-weight:600; margin-bottom:24px;
   }
   .pricing-badge .dot{width:6px; height:6px; border-radius:50%; background:var(--cloud); box-shadow:0 0 8px var(--cloud);}
-  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .pricing-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
   .price-card{background:var(--panel); padding:28px 24px; display:flex; flex-direction:column;}
   .price-card h3{font-size:17px; font-weight:700; margin-bottom:10px;}
   .price-card p{font-size:13.5px; color:var(--muted); line-height:1.55; margin-bottom:20px; flex-grow:1;}
   .price-card .amount{font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700;}
   .price-card .amount span{font-size:13px; font-weight:500; color:var(--muted); margin-left:4px;}
   .price-note{margin-top:28px; font-size:13.5px; color:var(--muted); text-align:center;}
-  @media(max-width:800px){ .pricing-grid{grid-template-columns:1fr;} }
+  @media(max-width:960px){ .pricing-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .pricing-grid{grid-template-columns:1fr;} }
+
+  .bundle-card{
+    margin-top:22px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    background:var(--panel); border:1px solid var(--gpt); border-radius:12px; padding:24px 28px;
+  }
+  .bundle-card h4{font-size:16px; margin-bottom:6px;}
+  .bundle-card p{font-size:13.5px; color:var(--muted); max-width:520px;}
+  .bundle-card .bundle-price{font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:var(--gpt); white-space:nowrap;}
+  .bundle-card .bundle-price span{display:block; font-family:'Inter',sans-serif; font-size:12px; font-weight:500; color:var(--muted); text-decoration:line-through; margin-top:2px;}
 
   /* FOOTER (lightweight CTA) */
   footer{padding:100px 0 60px;}
@@ -190,9 +200,9 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="work.html">Work</a></li>
+      <li><a href="aegis.html">Aegis</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="aegis.html">Aegis</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -204,9 +214,9 @@
     <div class="wrap">
       <a href="index.html">Home</a>
       <a href="work.html">Work</a>
+      <a href="aegis.html">Aegis</a>
       <a href="pricing.html">Pricing</a>
       <a href="about.html">About Us</a>
-      <a href="aegis.html">Aegis</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
@@ -236,7 +246,21 @@
           <p>Conversational assistants trained on your business — FAQs, lead capture, or full support flows.</p>
           <div class="amount">&#8377;12,000<span>starting</span></div>
         </div>
+        <div class="price-card">
+          <h3>TXL Aegis</h3>
+          <p>Full security scan, plain-English report, fixes implemented, and a re-verified "Secured" report to keep. For any site — not just ones I built. <a href="aegis.html" style="color:var(--gpt);">Learn more →</a></p>
+          <div class="amount">&#8377;4,000<span>starting</span></div>
+        </div>
       </div>
+
+      <a class="bundle-card reveal" href="contact.html?service=bundle" style="text-decoration:none; color:inherit; cursor:pointer;">
+        <div>
+          <h4>Building a website, dashboard, or chatbot with me?</h4>
+          <p>Add a TXL Aegis security report to the same build — it ships audited and hardened before launch, not patched after. Since it happens during the same build, it costs less than buying it standalone.</p>
+        </div>
+        <div class="bundle-price">+&#8377;2,000<span>vs &#8377;4,000 standalone</span></div>
+      </a>
+
       <p class="price-note">Every project includes 6 months of free bug-fixing support after launch. Final quote depends on scope — <a href="contact.html" style="color:var(--cloud);">get in touch</a> for exact pricing.</p>
     </div>
   </div>
