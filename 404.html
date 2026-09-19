@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — TXL Studio</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0c0f;
+    --panel:#13161b;
+    --line:#252a32;
+    --text:#eef0f2;
+    --muted:#8b93a1;
+    --cloud:#e8582f;
+    --gpt:#14b88a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%; background:var(--bg);}
+  body{
+    color:var(--text); font-family:'Inter',sans-serif; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:100vh; padding:28px; text-align:center; position:relative; overflow:hidden;
+  }
+  a{color:inherit;}
+  h1,h2{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .glow{position:absolute; width:700px; height:700px; border-radius:50%; background:var(--cloud); opacity:0.12; filter:blur(140px); top:-200px; left:50%; transform:translateX(-50%); pointer-events:none;}
+  .brand{display:flex; align-items:center; gap:12px; margin-bottom:56px; text-decoration:none; position:relative;}
+  .brand img{height:34px; width:auto;}
+  .brand-divider{width:1px; height:20px; background:var(--line);}
+  .brand-word{font-family:'Space Grotesk',sans-serif; font-weight:500; color:var(--muted); font-size:17px; letter-spacing:0.3px;}
+  .code{font-size:13px; color:var(--muted); margin-bottom:18px; letter-spacing:0.08em; text-transform:uppercase;}
+  .code span{color:var(--cloud);}
+  h1{font-size:clamp(40px,7vw,64px); margin-bottom:16px;}
+  p.sub{color:var(--muted); font-size:16px; max-width:440px; margin-bottom:40px; position:relative;}
+  .actions{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; position:relative;}
+  .btn{
+    font-weight:600; font-size:14px; padding:12px 22px; border-radius:8px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--text); color:#0a0c0f;}
+  .btn-primary:hover{opacity:0.88;}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<a class="brand" href="index.html">
+  <img src="favicon.svg" alt="TXL Studio logo">
+  <span class="brand-divider"></span>
+  <span class="brand-word">Studio</span>
+</a>
+
+<div class="code mono">Error <span>404</span></div>
+<h1>This page didn't ship.</h1>
+<p class="sub">The page you're looking for doesn't exist, or moved. Everything else on the site is very much live.</p>
+
+<div class="actions">
+  <a class="btn btn-primary" href="index.html">Back to home</a>
+  <a class="btn btn-ghost" href="work.html">See the work</a>
+  <a class="btn btn-ghost" href="contact.html">Contact</a>
+</div>
+
+</body>
+</html>

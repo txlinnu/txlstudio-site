@@ -326,7 +326,7 @@
     }, { passive: true });
   }
 
-  /* ---------- Netlify contact form (AJAX submit) ---------- */
+  /* ---------- Contact form (Formspree AJAX submit) ---------- */
   function initContactForm(){
     var form = document.getElementById('contactForm');
     var status = document.getElementById('formStatus');

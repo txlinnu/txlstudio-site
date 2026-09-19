@@ -5,7 +5,23 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://txlstudio.vercel.app/work.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/aegis.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/pricing.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://txlstudio.vercel.app/about.html</loc>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/contact.html</loc>
+    <priority>0.7</priority>
   </url>
 </urlset>
