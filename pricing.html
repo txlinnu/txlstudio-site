@@ -165,8 +165,12 @@
   .pricing-badge .dot{width:6px; height:6px; border-radius:50%; background:var(--cloud); box-shadow:0 0 8px var(--cloud);}
   .pricing-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
   .price-card{background:var(--panel); padding:28px 24px; display:flex; flex-direction:column;}
-  .price-card h3{font-size:17px; font-weight:700; margin-bottom:10px;}
+  .price-card h3{font-size:17px; font-weight:700; margin-bottom:6px;}
+  .price-card .for-tag{font-size:13px; color:var(--muted); margin-bottom:18px;}
   .price-card p{font-size:13.5px; color:var(--muted); line-height:1.55; margin-bottom:20px; flex-grow:1;}
+  .price-card .includes{list-style:none; margin-bottom:22px; flex-grow:1;}
+  .price-card .includes li{font-size:13px; color:var(--text); padding-left:18px; position:relative; line-height:1.6; margin-bottom:7px;}
+  .price-card .includes li::before{content:"✓"; position:absolute; left:0; color:var(--gpt); font-size:11px;}
   .price-card .amount{font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700;}
   .price-card .amount span{font-size:13px; font-weight:500; color:var(--muted); margin-left:4px;}
   .price-note{margin-top:28px; font-size:13.5px; color:var(--muted); text-align:center;}
@@ -245,7 +249,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a class="nav-cta" href="contact.html">Hire me</a>
+      <a class="nav-cta" href="contact.html">Start a Project →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -271,23 +275,43 @@
       <div class="pricing-badge"><span class="dot"></span>Founding client pricing — limited to my first few clients</div>
       <div class="pricing-grid">
         <div class="price-card">
-          <h3>Websites</h3>
-          <p>Custom-built business sites and full e-commerce stores — mobile-responsive, fast, and made to convert.</p>
+          <h3>Starter Website</h3>
+          <div class="for-tag">For small businesses that need a fast, professional site.</div>
+          <ul class="includes">
+            <li>Custom-designed, mobile-responsive site</li>
+            <li>Contact form &amp; lead capture</li>
+            <li>Basic on-page SEO setup</li>
+          </ul>
           <div class="amount">&#8377;8,000<span>starting</span></div>
         </div>
         <div class="price-card">
-          <h3>Dashboards</h3>
-          <p>Reporting and internal tools built around how your business actually tracks things.</p>
+          <h3>Business System</h3>
+          <div class="for-tag">For businesses that need more than a website.</div>
+          <ul class="includes">
+            <li>Website + dashboard / admin system</li>
+            <li>Custom reporting &amp; data views</li>
+            <li>Built around how you actually track things</li>
+          </ul>
           <div class="amount">&#8377;20,000<span>starting</span></div>
         </div>
         <div class="price-card">
-          <h3>AI Chatbots</h3>
-          <p>Conversational assistants trained on your business — FAQs, lead capture, or full support flows.</p>
+          <h3>AI Automation</h3>
+          <div class="for-tag">For businesses that want AI doing real work.</div>
+          <ul class="includes">
+            <li>Chatbot trained on your business</li>
+            <li>Lead capture or support flows</li>
+            <li>Workflow automation &amp; integrations</li>
+          </ul>
           <div class="amount">&#8377;12,000<span>starting</span></div>
         </div>
         <div class="price-card">
           <h3>TXL Aegis</h3>
-          <p>Full security scan, plain-English report, fixes implemented, and a re-verified "Secured" report to keep. For any site — not just ones I built. <a href="aegis.html" style="color:var(--gpt);">Learn more →</a></p>
+          <div class="for-tag">For any live site — not just ones we built.</div>
+          <ul class="includes">
+            <li>Full scan + plain-English report</li>
+            <li>Fixes implemented where access is given</li>
+            <li>Re-verified "Secured" report to keep</li>
+          </ul>
           <div class="amount">&#8377;4,000<span>starting</span></div>
         </div>
       </div>
@@ -300,7 +324,8 @@
         <div class="bundle-price">Complimentary<span>with any build</span></div>
       </a>
 
-      <p class="price-note">Every project includes 6 months of free bug-fixing support after launch. Final quote depends on scope — <a href="contact.html" style="color:var(--cloud);">get in touch</a> for exact pricing.</p>
+      <p class="price-note">Every project includes 6 months of free bug-fixing support after launch. Final quote depends on scope.</p>
+      <p class="price-note" style="margin-top:8px;">Need something custom? <a href="contact.html" style="color:var(--cloud);">Talk to us →</a></p>
     </div>
   </div>
 </section>

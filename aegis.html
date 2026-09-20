@@ -327,8 +327,8 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="section-label">// what we check</div>
-      <h2>Eight checks, all non-destructive, all with a real fix attached.</h2>
-      <p>No exploitation, no credential attacks, no guessing at what's wrong — every finding ships with the exact header, config line, or setting to change.</p>
+      <h2>Nine checks, all non-destructive, all with a real fix attached.</h2>
+      <p>No exploitation, no credential attacks, no guessing at what's wrong — every finding ships with the exact header, config line, or setting to change, tagged against OWASP Top 10:2025 and CWE for anyone who needs the formal reference.</p>
     </div>
     <div class="checks-grid reveal">
       <div class="check-item"><div class="k">01</div><h3>Security headers</h3><p>CSP, HSTS, X-Frame-Options, Permissions-Policy and more — checked and explained.</p></div>
@@ -339,6 +339,7 @@
       <div class="check-item"><div class="k">06</div><h3>Brute-force defense</h3><p>A bounded, dummy-credential probe checks whether login lockout or throttling exists at all.</p></div>
       <div class="check-item"><div class="k">07</div><h3>HTTP methods</h3><p>Flags risky verbs like TRACE or unrestricted PUT/DELETE left open by mistake.</p></div>
       <div class="check-item"><div class="k">08</div><h3>Mixed content</h3><p>Plain-HTTP resources quietly loaded on an HTTPS page.</p></div>
+      <div class="check-item"><div class="k">09</div><h3>Email &amp; DNS spoofing</h3><p>SPF, DKIM, and DMARC — checks whether anyone could send email that looks like it came from your domain.</p></div>
     </div>
   </div>
 </section>
@@ -351,8 +352,8 @@
     </div>
     <div class="steps reveal">
       <div class="step"><div class="num">01</div><h3>Scan</h3><p>We confirm permission first, then run the checks against your live site — a few minutes, nothing invasive.</p></div>
-      <div class="step"><div class="num">02</div><h3>Grade &amp; fix list</h3><p>An A–F grade plus a prioritized "what to fix" list — each item with the actual config line, not a vague warning.</p></div>
-      <div class="step"><div class="num">03</div><h3>Re-verify</h3><p>Ship the fixes, we re-scan, you get proof it's resolved — for a client, an investor, or your own peace of mind.</p></div>
+      <div class="step"><div class="num">02</div><h3>Grade &amp; fix list</h3><p>An A–F grade plus a prioritized "what to fix" list — each item with the actual config line, not a vague warning. Exportable as a PDF you can hand to a client or a dev.</p></div>
+      <div class="step"><div class="num">03</div><h3>Re-verify, or stay on it</h3><p>Ship the fixes, we re-scan, you get proof it's resolved. Or set it to check itself on a schedule, with an alert if anything regresses.</p></div>
     </div>
   </div>
 </section>

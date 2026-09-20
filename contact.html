@@ -160,6 +160,9 @@
   .contact-divider::before, .contact-divider::after{content:""; flex:1; height:1px; background:var(--line);}
   .contact-form{display:flex; flex-direction:column; gap:16px; max-width:600px; margin-bottom:60px;}
   .contact-form .field{display:flex; flex-direction:column; gap:7px;}
+  .field-row{display:flex; gap:16px;}
+  .field-row .field{flex:1;}
+  @media(max-width:520px){ .field-row{flex-direction:column;} }
   .contact-form label{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);}
   .contact-form input, .contact-form select, .contact-form textarea{
     background:var(--panel); border:1px solid var(--line); border-radius:8px;
@@ -193,7 +196,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a class="nav-cta" href="contact.html">Hire me</a>
+      <a class="nav-cta" href="contact.html">Start a Project →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -234,6 +237,10 @@
         <input id="cf-email" type="email" name="email" autocomplete="email" required>
       </div>
       <div class="field">
+        <label for="cf-company">Company / Business <span style="opacity:0.6;">(optional)</span></label>
+        <input id="cf-company" type="text" name="company" autocomplete="organization">
+      </div>
+      <div class="field">
         <label for="cf-project">Project type</label>
         <select id="cf-project" name="project">
           <option>Website</option>
@@ -243,6 +250,28 @@
           <option value="Website + Aegis bundle">Website + Aegis bundle</option>
           <option>Something else</option>
         </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-budget">Approximate budget <span style="opacity:0.6;">(optional)</span></label>
+          <select id="cf-budget" name="budget">
+            <option value="">Not sure yet</option>
+            <option>Under &#8377;10,000</option>
+            <option>&#8377;10,000 &ndash; &#8377;25,000</option>
+            <option>&#8377;25,000 &ndash; &#8377;50,000</option>
+            <option>&#8377;50,000+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-timeline">Timeline <span style="opacity:0.6;">(optional)</span></label>
+          <select id="cf-timeline" name="timeline">
+            <option value="">Not sure yet</option>
+            <option>ASAP</option>
+            <option>Within a month</option>
+            <option>1&ndash;3 months</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
       </div>
       <div class="field">
         <label for="cf-message" id="cf-message-label">What are you building?</label>

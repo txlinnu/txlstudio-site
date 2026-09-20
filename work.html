@@ -156,6 +156,13 @@
   .section-head{margin-bottom:48px;}
   .section-label{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;}
   .section-head h1, .section-head h2{font-size:clamp(26px,3.5vw,36px);}
+  .section-head p{color:var(--muted); max-width:560px; margin-top:14px; font-size:15.5px;}
+
+  /* CASE META — challenge/outcome */
+  .case-meta{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:36px; padding:24px; background:var(--panel); border:1px solid var(--line); border-radius:12px;}
+  .meta-block .meta-label{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--gpt); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;}
+  .meta-block p{font-size:14px; color:var(--text); line-height:1.6;}
+  @media(max-width:640px){ .case-meta{grid-template-columns:1fr;} }
 
   /* CASE STUDY */
   .case{padding:90px 0; border-bottom:1px solid var(--line);}
@@ -280,7 +287,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a class="nav-cta" href="contact.html">Hire me</a>
+      <a class="nav-cta" href="contact.html">Start a Project →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -301,6 +308,7 @@
     <div class="section-head reveal">
       <div class="section-label">// selected work</div>
       <h1>Products and business sites, shipped end to end</h1>
+      <p>Real products. Real systems. Built end-to-end.</p>
     </div>
     <div class="carousel3d reveal">
       <div class="carousel3d-stage" id="carouselStage">
@@ -319,6 +327,14 @@
             <div class="carousel3d-info">
               <span class="carousel3d-name">Base Fragrances</span>
               <span class="carousel3d-tag">Client project · e-commerce</span>
+            </div>
+          </div>
+          <div class="carousel3d-card" data-target="#case-aegis" data-accent="gpt" style="--i:2;">
+            <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
+            <div class="carousel3d-shot"><img src="images/aegis_1_hero.png" alt="TXL Aegis product hero" draggable="false"></div>
+            <div class="carousel3d-info">
+              <span class="carousel3d-name">TXL Aegis</span>
+              <span class="carousel3d-tag">Own product · security scanning</span>
             </div>
           </div>
         </div>
@@ -340,6 +356,17 @@
     </div>
     <p class="case-desc">A self-directed concept project — a full business website designed for a fictional civil engineering and construction firm, built to demonstrate lead-generation-focused web design: turning visitors into qualified proposal requests, not just displaying information.</p>
 
+    <div class="case-meta">
+      <div class="meta-block">
+        <div class="meta-label">Challenge</div>
+        <p>A construction firm's site needs to do more than list services — it needs to turn visitors into qualified proposal requests, not just display information.</p>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Outcome</div>
+        <p>A complete, production-quality business site with trust signals, a lead-capture proposal form, and a full page structure — a self-directed proof of this conversion-focused approach.</p>
+      </div>
+    </div>
+
     <div class="shot-grid">
       <div class="shot-frame tall tilt">
         <div class="bar"><span></span><span></span><span></span></div>
@@ -355,6 +382,7 @@
       </div>
     </div>
 
+    <div class="meta-label" style="margin-bottom:14px;">Key features</div>
     <ul class="feat-list">
       <li>Lead-capture "Request a Proposal" form with service-type dropdown, routed straight to the business</li>
       <li>Full site structure — Home, About Us, Services, Projects, Contact — built to the same standard as a live business site</li>
@@ -364,6 +392,7 @@
       <li>Fully responsive layout with a consistent brand identity (logo, tagline, color system) across every page</li>
     </ul>
 
+    <div class="meta-label" style="margin-top:20px; margin-bottom:2px;">Technology</div>
     <div class="case-stack">
       <span class="chip">Responsive Web Design</span><span class="chip">Lead Capture Forms</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span>
     </div>
@@ -382,6 +411,17 @@
     </div>
     <p class="case-desc">A full luxury perfume e-commerce store for Base Fragrances (basefragrances.com) — a Hyderabad-inspired fragrance brand built around oud, amber, and musk, with an Arabic identity (أساس, "Asās" — foundation) woven through the branding.</p>
 
+    <div class="case-meta">
+      <div class="meta-block">
+        <div class="meta-label">Challenge</div>
+        <p>A luxury fragrance brand needed a real storefront that didn't feel like a generic template — with bilingual Arabic/English branding woven through the entire experience.</p>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Outcome</div>
+        <p>A live, in-production storefront with a custom cart and checkout, an interactive 3D bottle carousel, and a dedicated Attars &amp; Oud collection — shipped and running at basefragrances.com today.</p>
+      </div>
+    </div>
+
     <div class="shot-grid">
       <div class="shot-frame tall tilt">
         <div class="bar"><span></span><span></span><span></span></div>
@@ -397,6 +437,7 @@
       </div>
     </div>
 
+    <div class="meta-label" style="margin-bottom:14px;">Key features</div>
     <ul class="feat-list">
       <li>Full e-commerce flow — product catalog, cart, and checkout, built custom rather than on a template platform</li>
       <li>Interactive 3D "Signature Bottles" carousel — drag to explore all six fragrances, a custom-built interaction, not a plugin</li>
@@ -406,8 +447,64 @@
       <li>Bilingual brand identity — Arabic (أساس) and English woven through the design, not just translated</li>
     </ul>
 
+    <div class="meta-label" style="margin-top:20px; margin-bottom:2px;">Technology</div>
     <div class="case-stack">
       <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">Custom Cart &amp; Checkout</span><span class="chip">Interactive 3D UI</span><span class="chip">WhatsApp Integration</span>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDY: TXL AEGIS -->
+<div class="case reveal" id="case-aegis">
+  <div class="wrap">
+    <div class="case-top">
+      <div class="case-name">
+        <div class="case-mark tilt" data-tilt-strength="1.6" style="background:#14b88a; font-size:12px;">AGS</div>
+        <h2>TXL Aegis</h2>
+      </div>
+      <span class="case-tag">Own product · security scanning</span>
+    </div>
+    <p class="case-desc">A self-built security scanner that runs the same checks used to harden every TXL Studio client build, packaged as its own product — complimentary with any build, or as a standalone engagement for any other site.</p>
+
+    <div class="case-meta">
+      <div class="meta-block">
+        <div class="meta-label">Challenge</div>
+        <p>Shipping a site is only half the job — most freelance and small-agency builds go live with missing security headers, no rate limiting, and other easily-fixed gaps nobody checked for.</p>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Outcome</div>
+        <p>Live and in active use — every new TXL Studio build ships with it included, and any other business can request a standalone scan and report.</p>
+      </div>
+    </div>
+
+    <div class="shot-grid">
+      <div class="shot-frame tall tilt">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <img loading="lazy" decoding="async" src="images/aegis_1_hero.png" alt="TXL Aegis product hero">
+      </div>
+      <div class="shot-frame tilt">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <img loading="lazy" decoding="async" src="images/aegis_2_checks.png" alt="TXL Aegis eight security checks">
+      </div>
+      <div class="shot-frame tilt">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <img loading="lazy" decoding="async" src="images/aegis_3_report.png" alt="TXL Aegis sample security scan report">
+      </div>
+    </div>
+
+    <div class="meta-label" style="margin-bottom:14px;">Key features</div>
+    <ul class="feat-list">
+      <li>Security headers checked and explained — CSP, HSTS, X-Frame-Options, Permissions-Policy</li>
+      <li>TLS &amp; certificate validation — protocol version, expiry, and chain validity</li>
+      <li>Rate-limit checks on login, checkout, and contact endpoints</li>
+      <li>Exposed-file detection — .env, .git, backup dumps</li>
+      <li>Cookie &amp; session hygiene — Secure and HttpOnly flag checks</li>
+      <li>Brute-force defense probe — bounded, dummy-credential lockout check</li>
+    </ul>
+
+    <div class="meta-label" style="margin-top:20px; margin-bottom:2px;">Technology</div>
+    <div class="case-stack">
+      <span class="chip">Security Headers</span><span class="chip">TLS Inspection</span><span class="chip">Rate-Limit Testing</span><span class="chip">Exposed-File Detection</span><span class="chip">Non-Destructive Scanning</span>
     </div>
   </div>
 </div>

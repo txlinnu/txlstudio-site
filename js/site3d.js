@@ -8,8 +8,10 @@
     var canvas = document.getElementById('bg3d');
     if (!canvas) return;
 
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    var isMobile = window.innerWidth < 700;
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: !isMobile });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     var scene = new THREE.Scene();
@@ -37,7 +39,7 @@
     var glowTex = makeGlowTexture();
 
     // Particle field
-    var particleCount = 220;
+    var particleCount = isMobile ? 90 : 220;
     var positions = new Float32Array(particleCount * 3);
     var colors = new Float32Array(particleCount * 3);
     var sizes = new Float32Array(particleCount);
@@ -82,8 +84,10 @@
       return entry;
     }
     var shape1 = wire(new THREE.IcosahedronGeometry(5, 1), 0xe8582f, 15, 6, -12, 0.4, 7);
-    var shape2 = wire(new THREE.TorusKnotGeometry(3, 0.85, 140, 20), 0x14b88a, -16, -7, -16, 0.3, 6);
-    var shape3 = wire(new THREE.OctahedronGeometry(3.2, 1), 0xe8582f, -13, 9, -8, 0.32, 5.5);
+    if (!isMobile) {
+      wire(new THREE.TorusKnotGeometry(3, 0.85, 140, 20), 0x14b88a, -16, -7, -16, 0.3, 6);
+      wire(new THREE.OctahedronGeometry(3.2, 1), 0xe8582f, -13, 9, -8, 0.32, 5.5);
+    }
 
     var targetX = 0, targetY = 0;
     window.addEventListener('mousemove', function(e){
