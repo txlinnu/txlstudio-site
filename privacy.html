@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYEG6Q3ZB3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FYEG6Q3ZB3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — TXL Studio</title>
+<meta name="description" content="What TXL Studio collects through the contact form and Google Analytics, how it's used, and how to ask for it to be deleted.">
+<link rel="canonical" href="https://txlstudio.vercel.app/privacy.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Privacy Policy — TXL Studio">
+<meta property="og:description" content="What TXL Studio collects, how it's used, and how to ask for it to be deleted.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://txlstudio.vercel.app/privacy.html">
+<meta property="og:image" content="https://txlstudio.vercel.app/og-image.png">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0c0f; --panel:#13161b; --panel-2:#181c22; --line:#252a32;
+    --text:#eef0f2; --muted:#8b93a1; --cloud:#e8582f; --cloud-dim:#e8582f22;
+    --gpt:#14b88a; --gpt-dim:#14b88a22;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; background:var(--bg);}
+  body{background:transparent; color:var(--text); font-family:'Inter',sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased;}
+  #bg3d{position:fixed; inset:0; z-index:-1; display:block;}
+  .tilt{transition:transform .2s ease-out; will-change:transform;}
+  @media(prefers-reduced-motion: reduce){ .tilt{transition:none;} }
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.22,.68,0,1), transform .7s cubic-bezier(.22,.68,0,1);}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  @media(prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+  ::selection{background:var(--cloud); color:#0a0c0f;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em;}
+
+  .wrap{max-width:820px; margin:0 auto; padding:0 28px;}
+
+  nav{position:sticky; top:0; z-index:50; background:rgba(10,12,15,0.5); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%); border-bottom:1px solid var(--line);}
+  nav::after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:1px; background:linear-gradient(90deg, transparent, var(--cloud), var(--gpt), transparent); background-size:200% 100%; opacity:0.55; animation:navshimmer 8s linear infinite;}
+  @keyframes navshimmer{ 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
+  nav .wrap{max-width:1080px; display:flex; align-items:center; justify-content:space-between; height:64px; position:relative;}
+  .brand{display:flex; align-items:center; gap:12px; font-family:'Space Grotesk',sans-serif; font-size:17px;}
+  .brand-mark{height:34px; width:auto; border-radius:4px; display:block;}
+  .brand-divider{width:1px; height:20px; background:var(--line);}
+  .brand-word{font-weight:500; color:var(--muted); letter-spacing:0.3px;}
+  nav ul{list-style:none; display:flex; gap:32px; font-size:14px; color:var(--muted);}
+  nav ul li{position:relative;}
+  nav ul a{position:relative; text-decoration:none; padding-bottom:4px; display:inline-block;}
+  nav ul a::after{content:""; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:linear-gradient(90deg, var(--cloud), var(--gpt)); transition:right .25s ease;}
+  nav ul a:hover{color:var(--text);}
+  nav ul a:hover::after{right:0;}
+  .nav-right{display:flex; align-items:center; gap:10px;}
+  .nav-cta{font-size:13px; padding:8px 16px; border-radius:7px; background:var(--text); color:#0a0c0f; font-weight:600; text-decoration:none;}
+  .nav-toggle{display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:34px; height:34px; border:1px solid var(--line); border-radius:7px; background:transparent; cursor:pointer; padding:0; flex-shrink:0;}
+  .nav-toggle span{ display:block; width:15px; height:2px; background:var(--text); transition:transform .25s ease, opacity .25s ease; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .nav-mobile{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .nav-mobile.open{ max-height:280px; border-top:1px solid var(--line); }
+  .nav-mobile .wrap{ display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; height:auto; padding:6px 28px 18px; max-width:1080px; }
+  .nav-mobile a{ padding:12px 2px; font-size:15px; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
+  .nav-mobile a:hover{ color:var(--text); }
+  @media(max-width:720px){ nav ul{display:none;} .nav-toggle{display:flex;} }
+  @media(min-width:721px){ .nav-mobile{display:none;} }
+  @media(max-width:520px){ .nav-cta{display:none;} }
+
+  .scroll-top-btn{position:fixed; right:26px; bottom:26px; z-index:60; width:48px; height:48px; border-radius:50%; border:1px solid var(--line); cursor:pointer; background:rgba(10,12,15,0.5); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); color:var(--text); display:flex; align-items:center; justify-content:center; box-shadow:0 14px 34px -10px rgba(0,0,0,0.55); opacity:0; visibility:hidden; transform:translateY(12px); transition:opacity .25s ease, transform .25s ease, visibility .25s, filter .2s ease, border-color .2s ease;}
+  .scroll-top-btn.visible{ opacity:1; visibility:visible; transform:translateY(0); }
+  .scroll-top-btn:hover{ border-color:var(--cloud); }
+
+  .btn{font-family:'Inter',sans-serif; font-weight:600; font-size:14px; padding:12px 22px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;}
+  .btn-primary{background:var(--text); color:#0a0c0f;}
+  .btn-primary:hover{opacity:0.88;}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--muted);}
+
+  .page-head{padding:70px 0 20px;}
+  .section-label{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;}
+  .page-head h1{font-size:clamp(30px,4.5vw,44px); margin-bottom:14px;}
+  .updated{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--muted);}
+
+  .doc{padding:40px 0 90px;}
+  .doc h2{font-size:19px; margin:40px 0 14px;}
+  .doc h2:first-child{margin-top:0;}
+  .doc p{font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:14px;}
+  .doc ul{margin:0 0 14px 20px; color:var(--muted); font-size:15px; line-height:1.75;}
+  .doc a{color:var(--gpt); text-decoration:underline;}
+  .doc .note{font-size:13px; color:var(--muted); border-left:2px solid var(--line); padding-left:14px; margin-top:32px;}
+
+  .tldr{
+    margin-top:28px; padding:22px 24px; border-radius:12px;
+    background:var(--gpt-dim); border:1px solid var(--gpt);
+  }
+  .tldr .tldr-label{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--gpt); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:12px;}
+  .tldr ul{margin:0; padding-left:20px; color:var(--text); font-size:14.5px; line-height:1.7;}
+  .tldr li{margin-bottom:6px;}
+  .tldr li:last-child{margin-bottom:0;}
+
+  footer{padding:60px 0 60px; border-top:1px solid var(--line);}
+  .contact-row{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:40px;}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:28px; border-top:1px solid var(--line); font-size:13px; color:var(--muted);}
+  .foot-links{display:flex; gap:16px;}
+  .foot-links a{text-decoration:none;}
+  .foot-links a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<canvas id="bg3d"></canvas>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><img class="brand-mark tilt" data-tilt-strength="1.8" src="favicon.svg" alt="TXL Studio logo"><span class="brand-divider"></span><span class="brand-word">Studio</span></div></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="aegis.html">Aegis</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-cta" href="contact.html">Start a Project →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <div class="wrap">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="aegis.html">Aegis</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap page-head">
+  <div class="section-label">// legal</div>
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last updated: 21 September 2026</div>
+
+  <div class="tldr">
+    <div class="tldr-label">// in short</div>
+    <ul>
+      <li>We collect what you type into the contact form (name, email, project details) and basic Google Analytics data (which pages you visit).</li>
+      <li>We use it only to respond to you and to understand which pages are useful — never sold, never shared with advertisers.</li>
+      <li>Two services touch your data: Formspree (delivers your form submission to our email) and Google Analytics (site usage stats).</li>
+      <li>Email us anytime to have your data deleted.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="wrap doc">
+  <h2>What this page is</h2>
+  <p>This is a plain-language summary of what TXL Studio collects on this site and why — not a substitute for legal advice. If you have questions, email <a href="mailto:help.txlcustomer@gmail.com">help.txlcustomer@gmail.com</a> directly.</p>
+
+  <h2>What we collect</h2>
+  <p>Two sources of data on this site:</p>
+  <ul>
+    <li><strong>The contact form.</strong> Name, email, company/business (optional), project type, approximate budget (optional), timeline (optional), and whatever you write in the message field.</li>
+    <li><strong>Google Analytics.</strong> Standard usage data — pages visited, approximate location, device/browser type, and referring site. This is aggregate and isn't tied to your name unless you also submit the contact form.</li>
+  </ul>
+
+  <h2>How it's used</h2>
+  <p>Contact form submissions are used only to respond to your inquiry and discuss the project — never sold, never used for marketing without asking first. Analytics data is used in aggregate to understand which pages are useful and improve the site.</p>
+
+  <h2>Who else sees it</h2>
+  <ul>
+    <li><strong>Formspree</strong> processes contact form submissions and forwards them by email. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree's privacy policy</a> for how they handle data in transit.</li>
+    <li><strong>Google Analytics</strong> processes usage data per <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
+  </ul>
+  <p>Nobody else. No ad networks, no data brokers, no resale.</p>
+
+  <h2>Cookies</h2>
+  <p>Google Analytics sets cookies to recognize return visits. You can block these in your browser's privacy settings without affecting anything else on this site.</p>
+
+  <h2>Your rights</h2>
+  <p>You can ask for any data you've submitted through the contact form to be deleted at any time — email <a href="mailto:help.txlcustomer@gmail.com">help.txlcustomer@gmail.com</a>.</p>
+
+  <h2>Changes</h2>
+  <p>This policy may be updated as the site changes. Check back here periodically.</p>
+
+  <div class="note">Questions about this policy: <a href="mailto:help.txlcustomer@gmail.com">help.txlcustomer@gmail.com</a></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="contact-row">
+      <a class="btn btn-primary" href="contact.html">Start a project →</a>
+      <a class="btn btn-ghost" href="index.html">← Back to home</a>
+    </div>
+    <div class="foot-bottom">
+      <span>TXL Studio — AI &amp; Web</span>
+      <div class="foot-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eef0f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="js/site3d.js" defer></script>
+
+</body>
+</html>

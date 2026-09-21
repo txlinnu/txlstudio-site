@@ -24,4 +24,12 @@
     <loc>https://txlstudio.vercel.app/contact.html</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/privacy.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/terms.html</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

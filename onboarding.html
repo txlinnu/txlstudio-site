@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYEG6Q3ZB3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FYEG6Q3ZB3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Onboarding — TXL Studio</title>
+<meta name="description" content="Tell TXL Studio what's needed to get your project started.">
+<link rel="canonical" href="https://txlstudio.vercel.app/onboarding.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0c0f; --panel:#13161b; --panel-2:#181c22; --line:#252a32;
+    --text:#eef0f2; --muted:#8b93a1; --cloud:#e8582f; --cloud-dim:#e8582f22;
+    --gpt:#14b88a; --gpt-dim:#14b88a22;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; background:var(--bg);}
+  body{background:transparent; color:var(--text); font-family:'Inter',sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased;}
+  #bg3d{position:fixed; inset:0; z-index:-1; display:block;}
+  .tilt{transition:transform .2s ease-out; will-change:transform;}
+  @media(prefers-reduced-motion: reduce){ .tilt{transition:none;} }
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.22,.68,0,1), transform .7s cubic-bezier(.22,.68,0,1);}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  @media(prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+  ::selection{background:var(--cloud); color:#0a0c0f;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em;}
+
+  .wrap{max-width:720px; margin:0 auto; padding:0 28px;}
+
+  nav{position:sticky; top:0; z-index:50; background:rgba(10,12,15,0.5); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%); border-bottom:1px solid var(--line);}
+  nav::after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:1px; background:linear-gradient(90deg, transparent, var(--cloud), var(--gpt), transparent); background-size:200% 100%; opacity:0.55; animation:navshimmer 8s linear infinite;}
+  @keyframes navshimmer{ 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
+  nav .wrap{max-width:1080px; display:flex; align-items:center; justify-content:space-between; height:64px; position:relative;}
+  .brand{display:flex; align-items:center; gap:12px; font-family:'Space Grotesk',sans-serif; font-size:17px;}
+  .brand-mark{height:34px; width:auto; border-radius:4px; display:block;}
+  .brand-divider{width:1px; height:20px; background:var(--line);}
+  .brand-word{font-weight:500; color:var(--muted); letter-spacing:0.3px;}
+  nav ul{list-style:none; display:flex; gap:32px; font-size:14px; color:var(--muted);}
+  nav ul li{position:relative;}
+  nav ul a{position:relative; text-decoration:none; padding-bottom:4px; display:inline-block;}
+  nav ul a::after{content:""; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:linear-gradient(90deg, var(--cloud), var(--gpt)); transition:right .25s ease;}
+  nav ul a:hover{color:var(--text);}
+  nav ul a:hover::after{right:0;}
+  .nav-right{display:flex; align-items:center; gap:10px;}
+  .nav-cta{font-size:13px; padding:8px 16px; border-radius:7px; background:var(--text); color:#0a0c0f; font-weight:600; text-decoration:none;}
+  .nav-toggle{display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:34px; height:34px; border:1px solid var(--line); border-radius:7px; background:transparent; cursor:pointer; padding:0; flex-shrink:0;}
+  .nav-toggle span{ display:block; width:15px; height:2px; background:var(--text); transition:transform .25s ease, opacity .25s ease; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .nav-mobile{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .nav-mobile.open{ max-height:280px; border-top:1px solid var(--line); }
+  .nav-mobile .wrap{ display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; height:auto; padding:6px 28px 18px; max-width:1080px; }
+  .nav-mobile a{ padding:12px 2px; font-size:15px; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
+  .nav-mobile a:hover{ color:var(--text); }
+  @media(max-width:720px){ nav ul{display:none;} .nav-toggle{display:flex;} }
+  @media(min-width:721px){ .nav-mobile{display:none;} }
+  @media(max-width:520px){ .nav-cta{display:none;} }
+
+  .scroll-top-btn{position:fixed; right:26px; bottom:26px; z-index:60; width:48px; height:48px; border-radius:50%; border:1px solid var(--line); cursor:pointer; background:rgba(10,12,15,0.5); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); color:var(--text); display:flex; align-items:center; justify-content:center; box-shadow:0 14px 34px -10px rgba(0,0,0,0.55); opacity:0; visibility:hidden; transform:translateY(12px); transition:opacity .25s ease, transform .25s ease, visibility .25s, filter .2s ease, border-color .2s ease;}
+  .scroll-top-btn.visible{ opacity:1; visibility:visible; transform:translateY(0); }
+  .scroll-top-btn:hover{ border-color:var(--cloud); }
+
+  .btn{font-family:'Inter',sans-serif; font-weight:600; font-size:14px; padding:12px 22px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer;}
+  .btn-primary{background:var(--text); color:#0a0c0f;}
+  .btn-primary:hover{opacity:0.88;}
+  .btn-primary:disabled{opacity:0.6; cursor:default;}
+
+  .page-head{padding:70px 0 20px;}
+  .section-label{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;}
+  .page-head h1{font-size:clamp(28px,4.2vw,40px); margin-bottom:14px;}
+  .page-head p{color:var(--muted); font-size:15.5px; max-width:560px;}
+
+  .form-body{padding:20px 0 100px;}
+  .group{margin-bottom:44px;}
+  .group-label{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--gpt); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid var(--line);}
+  .field{display:flex; flex-direction:column; gap:7px; margin-bottom:18px;}
+  .field label{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);}
+  .field .hint{font-size:12.5px; color:var(--muted); opacity:0.8;}
+  .field input, .field select, .field textarea{
+    background:var(--panel); border:1px solid var(--line); border-radius:8px;
+    padding:12px 14px; color:var(--text); font-family:'Inter',sans-serif; font-size:14px;
+    outline:none; transition:border-color .2s ease; width:100%;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--gpt); }
+  .field textarea{resize:vertical; min-height:80px; font-family:'Inter',sans-serif;}
+  .hp-field{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;}
+  .form-status{font-family:'JetBrains Mono',monospace; font-size:13px; min-height:18px; margin-top:10px;}
+  .form-status[data-state="success"]{color:var(--gpt);}
+  .form-status[data-state="error"]{color:var(--cloud);}
+  .no-pw-note{
+    margin-top:32px; padding:14px 18px; border-radius:10px;
+    background:var(--gpt-dim); border:1px solid var(--gpt); color:var(--gpt);
+    font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.6;
+  }
+
+  footer{padding:60px 0 60px; border-top:1px solid var(--line);}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:var(--muted);}
+  .foot-links{display:flex; gap:16px;}
+  .foot-links a{text-decoration:none;}
+  .foot-links a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<canvas id="bg3d"></canvas>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" style="text-decoration:none;"><div class="brand"><img class="brand-mark tilt" data-tilt-strength="1.8" src="favicon.svg" alt="TXL Studio logo"><span class="brand-divider"></span><span class="brand-word">Studio</span></div></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="aegis.html">Aegis</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-cta" href="contact.html">Start a Project →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <div class="wrap">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="aegis.html">Aegis</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap page-head">
+  <div class="section-label">// project onboarding</div>
+  <h1>Let's get your project started.</h1>
+  <p>You said yes — now I need the details to actually build this. Fill in what you can; skip anything that doesn't apply or that you're not sure about yet, and we'll sort it out over email.</p>
+</div>
+
+<div class="wrap form-body">
+  <form id="onboardingForm" method="POST" action="https://formspree.io/f/xqpakwgg">
+    <p class="hp-field"><label>Don't fill this out if you're human: <input name="_gotcha"></label></p>
+    <input type="hidden" name="_subject" value="TXL Studio — Project Onboarding">
+
+    <div class="group">
+      <div class="group-label">// the basics</div>
+      <div class="field">
+        <label for="ob-name">Your name</label>
+        <input id="ob-name" type="text" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="ob-email">Email</label>
+        <input id="ob-email" type="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="ob-business">Business name</label>
+        <input id="ob-business" type="text" name="business_name">
+      </div>
+      <div class="field">
+        <label for="ob-project">Project type</label>
+        <select id="ob-project" name="project_type">
+          <option>Website</option>
+          <option>Dashboard</option>
+          <option>AI Chatbot</option>
+          <option value="Security Report (Aegis)">Security Report (Aegis)</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ob-about">What does your business do?</label>
+        <textarea id="ob-about" name="about_business" placeholder="A couple of sentences is enough"></textarea>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">// branding &amp; content</div>
+      <div class="field">
+        <label for="ob-brand">Existing branding</label>
+        <div class="hint" style="margin-bottom:7px;">Logo, colors, fonts — if you have them, paste a Google Drive/Dropbox link. If not, just say so.</div>
+        <textarea id="ob-brand" name="branding"></textarea>
+      </div>
+      <div class="field">
+        <label for="ob-content">Is your content ready?</label>
+        <div class="hint" style="margin-bottom:7px;">Text, product info, images — ready to go, partly ready, or need help writing it?</div>
+        <textarea id="ob-content" name="content_status"></textarea>
+      </div>
+      <div class="field">
+        <label for="ob-refs">Reference sites (optional)</label>
+        <div class="hint" style="margin-bottom:7px;">Anything you like the look or feel of — paste links.</div>
+        <input id="ob-refs" type="text" name="references">
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">// domain, hosting &amp; access</div>
+      <div class="field">
+        <label for="ob-domain">Domain &amp; hosting</label>
+        <div class="hint" style="margin-bottom:7px;">Do you already own a domain? Existing hosting, or need it set up from scratch?</div>
+        <textarea id="ob-domain" name="domain_hosting"></textarea>
+      </div>
+      <div class="field">
+        <label for="ob-access">Existing accounts we may need to know about</label>
+        <div class="hint" style="margin-bottom:7px;">e.g. current site, domain registrar, payment gateway — just list what exists, we'll arrange secure access separately.</div>
+        <textarea id="ob-access" name="existing_access"></textarea>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">// timeline</div>
+      <div class="field">
+        <label for="ob-deadline">Hard deadline, if any (optional)</label>
+        <input id="ob-deadline" type="text" name="deadline" placeholder="e.g. needs to launch before Diwali">
+      </div>
+      <div class="field">
+        <label for="ob-notes">Anything else I should know?</label>
+        <textarea id="ob-notes" name="notes"></textarea>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" id="obSubmit">Send project details</button>
+    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+    <div class="no-pw-note">Never include passwords or payment details in this form. If we need access to an existing account, we'll arrange it securely over email or a call — not through this page.</div>
+  </form>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>TXL Studio — AI &amp; Web</span>
+      <div class="foot-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eef0f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="js/site3d.js" defer></script>
+<script>
+  (function(){
+    var form = document.getElementById('onboardingForm');
+    var status = document.getElementById('formStatus');
+    var submitBtn = document.getElementById('obSubmit');
+    if (!form || !status) return;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      status.textContent = '';
+      status.removeAttribute('data-state');
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function(res){
+        if (!res.ok) throw new Error('Request failed');
+        form.reset();
+        status.textContent = 'Got it — thanks. I\'ll follow up over email.';
+        status.setAttribute('data-state', 'success');
+      }).catch(function(){
+        status.textContent = 'Something went wrong. Email me directly instead: help.txlcustomer@gmail.com';
+        status.setAttribute('data-state', 'error');
+      }).finally(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send project details';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
