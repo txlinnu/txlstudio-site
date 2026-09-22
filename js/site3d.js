@@ -395,8 +395,29 @@
     toggle();
   }
 
+  /* ---------- Cinematic overlay: vignette + film grain ---------- */
+  function initCinematic(){
+    var style = document.createElement('style');
+    style.textContent =
+      '.cine-vignette{position:fixed; inset:0; z-index:70; pointer-events:none;' +
+      ' background:radial-gradient(ellipse 80% 65% at 50% 38%, transparent 45%, rgba(0,0,0,0.30) 78%, rgba(0,0,0,0.55) 100%);}' +
+      '.cine-grain{position:fixed; inset:0; z-index:71; pointer-events:none; opacity:0.035; mix-blend-mode:overlay;' +
+      ' background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'120\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'2\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E");}';
+    document.head.appendChild(style);
+
+    var vignette = document.createElement('div');
+    vignette.className = 'cine-vignette';
+    document.body.appendChild(vignette);
+
+    if (!reduceMotion) {
+      var grain = document.createElement('div');
+      grain.className = 'cine-grain';
+      document.body.appendChild(grain);
+    }
+  }
+
   function initAll(){
-    initBackground(); initTilt(); initCarousel(); initMobileNav(); initContactForm(); initReveal(); initScrollTop();
+    initBackground(); initTilt(); initCarousel(); initMobileNav(); initContactForm(); initReveal(); initScrollTop(); initCinematic();
   }
 
   if (document.readyState === 'loading') {
