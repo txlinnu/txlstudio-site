@@ -13,14 +13,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — TXL Studio</title>
-<meta name="description" content="TXL Studio pricing — websites from ₹8,000, dashboards from ₹20,000, AI chatbots from ₹12,000, security reports from ₹4,000. Founding pricing available.">
+<meta name="description" content="TXL Studio pricing — websites from ₹5,000, dashboards from ₹15,000, AI chatbots from ₹8,000, security reports from ₹4,000. Founding pricing available.">
 <meta name="keywords" content="TXL Studio pricing, web developer pricing India, dashboard developer pricing, AI chatbot developer pricing">
 <link rel="canonical" href="https://txlstudio.vercel.app/pricing.html">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Pricing — TXL Studio">
-<meta property="og:description" content="Straightforward pricing, no surprises. Websites from ₹8,000, dashboards from ₹20,000, AI chatbots from ₹12,000.">
+<meta property="og:description" content="Straightforward pricing, no surprises. Websites from ₹5,000, dashboards from ₹15,000, AI chatbots from ₹8,000.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://txlstudio.vercel.app/pricing.html">
 <meta property="og:image" content="https://txlstudio.vercel.app/og-image.png">
@@ -28,7 +28,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pricing — TXL Studio">
-<meta name="twitter:description" content="Straightforward pricing, no surprises. Websites from ₹8,000, dashboards from ₹20,000, AI chatbots from ₹12,000.">
+<meta name="twitter:description" content="Straightforward pricing, no surprises. Websites from ₹5,000, dashboards from ₹15,000, AI chatbots from ₹8,000.">
 <meta name="twitter:image" content="https://txlstudio.vercel.app/og-image.png">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -156,7 +156,7 @@
   /* SECTION generic */
   section{padding:90px 0; border-bottom:1px solid var(--line);}
   .section-head{margin-bottom:48px;}
-  .section-label{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;}
+  .section-label{display:none;}
   .section-head h1, .section-head h2{font-size:clamp(26px,3.5vw,36px);}
 
   /* PRICING */
@@ -166,19 +166,69 @@
     font-size:12.5px; font-weight:600; margin-bottom:24px;
   }
   .pricing-badge .dot{width:6px; height:6px; border-radius:50%; background:var(--cloud); box-shadow:0 0 8px var(--cloud);}
-  .pricing-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
-  .price-card{background:var(--panel); padding:28px 24px; display:flex; flex-direction:column;}
-  .price-card h3{font-size:17px; font-weight:700; margin-bottom:6px;}
-  .price-card .for-tag{font-size:13px; color:var(--muted); margin-bottom:18px;}
+  .pricing-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  .price-card{
+    background:var(--panel); padding:32px 26px; display:flex; flex-direction:column;
+    border:1px solid var(--line); border-radius:14px; position:relative;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .price-card:hover{transform:translateY(-4px); border-color:var(--muted);}
+  .price-card.featured{
+    background:linear-gradient(180deg, var(--cloud-dim), var(--panel) 55%);
+    border-color:var(--cloud);
+  }
+  .price-card .badge-pop{
+    position:absolute; top:-13px; right:22px; background:var(--cloud); color:#0a0c0f;
+    font-size:11px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase;
+    padding:5px 12px; border-radius:20px;
+  }
+  .price-card h3{font-size:18px; font-weight:700; margin-bottom:6px;}
+  .price-card .for-tag{font-size:13px; color:var(--muted); margin-bottom:20px; min-height:34px;}
   .price-card p{font-size:13.5px; color:var(--muted); line-height:1.55; margin-bottom:20px; flex-grow:1;}
-  .price-card .includes{list-style:none; margin-bottom:22px; flex-grow:1;}
-  .price-card .includes li{font-size:13px; color:var(--text); padding-left:18px; position:relative; line-height:1.6; margin-bottom:7px;}
-  .price-card .includes li::before{content:"✓"; position:absolute; left:0; color:var(--gpt); font-size:11px;}
-  .price-card .amount{font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700;}
+  .price-card .includes{list-style:none; margin-bottom:26px; flex-grow:1;}
+  .price-card .includes li{font-size:13.5px; color:var(--text); padding-left:24px; position:relative; line-height:1.7; margin-bottom:9px;}
+  .price-card .includes li::before{
+    content:"✓"; position:absolute; left:0; top:1px; color:var(--gpt); font-size:10px; font-weight:700;
+    width:15px; height:15px; border-radius:50%; background:var(--gpt-dim);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .price-card .amount-row{padding-top:18px; border-top:1px solid var(--line);}
+  .price-card .amount{font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700;}
   .price-card .amount span{font-size:13px; font-weight:500; color:var(--muted); margin-left:4px;}
   .price-note{margin-top:28px; font-size:13.5px; color:var(--muted); text-align:center;}
   @media(max-width:960px){ .pricing-grid{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:560px){ .pricing-grid{grid-template-columns:1fr;} }
+
+  /* Category cards + expandable detail */
+  .price-founding{font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--cloud);}
+  .price-regular{font-size:14px; color:var(--muted); text-decoration:line-through; margin-left:8px;}
+  .price-unit{display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin-top:2px;}
+  .cat-card .amount-row{padding-top:18px; border-top:1px solid var(--line); margin-bottom:18px;}
+  .cat-toggle{
+    width:100%; background:transparent; border:1px solid var(--line); color:var(--text);
+    font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:11px; border-radius:8px;
+    cursor:pointer; transition:border-color .2s ease, background .2s ease;
+  }
+  .cat-card.active .cat-toggle, .cat-toggle:hover{border-color:var(--cloud); background:var(--cloud-dim);}
+
+  .cat-detail{
+    display:none; grid-column:1 / -1; background:var(--panel-2); border:1px solid var(--line); border-radius:14px;
+    padding:30px 28px;
+  }
+  .cat-detail.open{display:block;}
+  .tier-row{padding:20px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  .tier-row:last-of-type{border-bottom:none;}
+  .tier-row h4{font-size:15.5px; font-weight:700; margin-bottom:6px;}
+  .tier-row p{font-size:13.5px; color:var(--muted); line-height:1.55; max-width:520px;}
+  .tier-row .tier-price{text-align:right; white-space:nowrap;}
+  .tier-row .tier-price .price-founding{font-size:22px;}
+  @media(max-width:640px){ .tier-row{flex-direction:column;} .tier-row .tier-price{text-align:left;} }
+
+  .addons-box{margin-top:20px; background:var(--panel-2); border:1px solid var(--line); border-radius:14px; padding:22px 28px;}
+  .addons-box h4{font-size:14px; font-weight:700; margin-bottom:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted);}
+  .addons-box .addon-row{display:flex; justify-content:space-between; padding:9px 0; font-size:13.5px; border-bottom:1px solid var(--line);}
+  .addons-box .addon-row:last-child{border-bottom:none;}
+  .addons-box .addon-row span:last-child{color:var(--text); font-weight:600;}
 
   .bundle-card{
     margin-top:22px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
@@ -209,7 +259,7 @@
       "serviceType": "Website development",
       "provider": { "@type": "Organization", "name": "TXL Studio", "url": "https://txlstudio.vercel.app/" },
       "areaServed": "IN",
-      "offers": { "@type": "Offer", "price": "8000", "priceCurrency": "INR", "url": "https://txlstudio.vercel.app/pricing.html" }
+      "offers": { "@type": "Offer", "price": "5000", "priceCurrency": "INR", "url": "https://txlstudio.vercel.app/pricing.html" }
     },
     {
       "@type": "Service",
@@ -217,7 +267,7 @@
       "serviceType": "Dashboard development",
       "provider": { "@type": "Organization", "name": "TXL Studio", "url": "https://txlstudio.vercel.app/" },
       "areaServed": "IN",
-      "offers": { "@type": "Offer", "price": "20000", "priceCurrency": "INR", "url": "https://txlstudio.vercel.app/pricing.html" }
+      "offers": { "@type": "Offer", "price": "15000", "priceCurrency": "INR", "url": "https://txlstudio.vercel.app/pricing.html" }
     },
     {
       "@type": "Service",
@@ -225,7 +275,7 @@
       "serviceType": "AI chatbot development",
       "provider": { "@type": "Organization", "name": "TXL Studio", "url": "https://txlstudio.vercel.app/" },
       "areaServed": "IN",
-      "offers": { "@type": "Offer", "price": "12000", "priceCurrency": "INR", "url": "https://txlstudio.vercel.app/pricing.html" }
+      "offers": { "@type": "Offer", "price": "8000", "priceCurrency": "INR", "url": "https://txlstudio.vercel.app/pricing.html" }
     },
     {
       "@type": "Service",
@@ -279,58 +329,129 @@
     </div>
     <div class="reveal">
       <div class="pricing-badge"><span class="dot"></span>Founding client pricing — limited to my first few clients</div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h3>Starter Website</h3>
-          <div class="for-tag">For small businesses that need a fast, professional site.</div>
+      <div class="pricing-grid" id="catGrid">
+        <div class="price-card featured cat-card" data-cat="websites">
+          <span class="badge-pop">Most popular</span>
+          <h3>Websites</h3>
+          <div class="for-tag">Custom-built multi-page sites — no page-builder templates.</div>
           <ul class="includes">
-            <li>Custom-designed, mobile-responsive site</li>
-            <li>Contact form &amp; lead capture</li>
+            <li>Starter, Standard, or full E-commerce</li>
+            <li>Custom-designed &amp; built from scratch, mobile-responsive</li>
+            <li>Contact form &amp; lead capture wired in</li>
             <li>Basic on-page SEO setup</li>
+            <li>Free TXL Aegis security scan &amp; hardening included</li>
           </ul>
-          <div class="amount">&#8377;8,000<span>starting</span></div>
+          <div class="amount-row">
+            <div class="price-founding">&#8377;5,000<span class="price-regular">&#8377;8,000</span></div>
+            <span class="price-unit">starting</span>
+          </div>
+          <button class="cat-toggle" type="button">See options →</button>
         </div>
-        <div class="price-card">
-          <h3>Business System</h3>
-          <div class="for-tag">For businesses that need more than a website.</div>
+
+        <div class="cat-detail" id="detail-websites">
+          <div class="tier-row">
+            <div><h4>Starter</h4><p>Up to 5 pages, mobile-responsive, contact form, basic SEO setup. Good fit for a small local business needing a first real website.</p></div>
+            <div class="tier-price"><div class="price-founding">&#8377;5,000<span class="price-regular">&#8377;8,000</span></div></div>
+          </div>
+          <div class="tier-row">
+            <div><h4>Standard</h4><p>Full multi-page business site — lead-capture forms, trust sections, custom design matched to your brand.</p></div>
+            <div class="tier-price"><div class="price-founding">&#8377;12,000<span class="price-regular">&#8377;18,000</span></div></div>
+          </div>
+          <div class="tier-row">
+            <div><h4>E-commerce</h4><p>Full online store — product catalog, cart, checkout, custom interactions. Built from scratch, not a page-builder template.</p></div>
+            <div class="tier-price"><div class="price-founding">&#8377;25,000<span class="price-regular">&#8377;40,000</span></div></div>
+          </div>
+        </div>
+
+        <div class="price-card cat-card" data-cat="dashboards">
+          <h3>Dashboards</h3>
+          <div class="for-tag">Reporting &amp; internal tools built around your business.</div>
           <ul class="includes">
-            <li>Website + dashboard / admin system</li>
-            <li>Custom reporting &amp; data views</li>
-            <li>Built around how you actually track things</li>
+            <li>Custom data visualization &amp; reporting views</li>
+            <li>Built around how your business actually tracks things</li>
+            <li>Optional role-based access for multiple logins</li>
+            <li>Data export options</li>
+            <li>Free TXL Aegis security scan &amp; hardening included</li>
           </ul>
-          <div class="amount">&#8377;20,000<span>starting</span></div>
+          <div class="amount-row">
+            <div class="price-founding">&#8377;15,000<span class="price-regular">&#8377;20,000</span></div>
+            <span class="price-unit">starting</span>
+          </div>
+          <button class="cat-toggle" type="button">See options →</button>
         </div>
-        <div class="price-card">
-          <h3>AI Automation</h3>
-          <div class="for-tag">For businesses that want AI doing real work.</div>
+
+        <div class="cat-detail" id="detail-dashboards">
+          <div class="tier-row">
+            <div><h4>Custom Dashboard</h4><p>Data visualization, reporting, or internal tooling built around how your business actually tracks things — not a generic template.</p></div>
+            <div class="tier-price"><div class="price-founding">&#8377;15,000<span class="price-regular">&#8377;20,000</span></div></div>
+          </div>
+        </div>
+
+        <div class="price-card cat-card" data-cat="chatbots">
+          <h3>AI Chatbots</h3>
+          <div class="for-tag">Assistants trained on your business, embedded on your site.</div>
           <ul class="includes">
-            <li>Chatbot trained on your business</li>
-            <li>Lead capture or support flows</li>
-            <li>Workflow automation &amp; integrations</li>
+            <li>Basic FAQ bot or full conversational assistant</li>
+            <li>Trained on your actual business content</li>
+            <li>Lead capture built in — sent straight to you</li>
+            <li>Connects to your data/catalog for multi-step flows</li>
+            <li>Free TXL Aegis security scan &amp; hardening included</li>
           </ul>
-          <div class="amount">&#8377;12,000<span>starting</span></div>
+          <div class="amount-row">
+            <div class="price-founding">&#8377;8,000<span class="price-regular">&#8377;12,000</span></div>
+            <span class="price-unit">starting</span>
+          </div>
+          <button class="cat-toggle" type="button">See options →</button>
         </div>
-        <div class="price-card">
+
+        <div class="cat-detail" id="detail-chatbots">
+          <div class="tier-row">
+            <div><h4>Basic Bot</h4><p>FAQ-style assistant trained on your business info — website embed, common questions, lead capture.</p></div>
+            <div class="tier-price"><div class="price-founding">&#8377;8,000<span class="price-regular">&#8377;12,000</span></div></div>
+          </div>
+          <div class="tier-row">
+            <div><h4>Advanced Bot</h4><p>Full conversational assistant — connects to your data/catalog, handles multi-step flows, custom UI.</p></div>
+            <div class="tier-price"><div class="price-founding">&#8377;20,000<span class="price-regular">&#8377;30,000</span></div></div>
+          </div>
+        </div>
+
+        <div class="price-card cat-card" data-cat="aegis">
           <h3>TXL Aegis</h3>
           <div class="for-tag">For any live site — not just ones we built.</div>
           <ul class="includes">
-            <li>Full scan + plain-English report</li>
+            <li>Full scan + plain-English report, no jargon</li>
+            <li>Checks headers, SPF/DMARC, rate-limiting, spoofing risk</li>
             <li>Fixes implemented where access is given</li>
             <li>Re-verified "Secured" report to keep</li>
           </ul>
-          <div class="amount">&#8377;4,000<span>starting</span></div>
+          <div class="amount-row"><div class="amount">&#8377;4,000<span>starting</span></div></div>
+          <button class="cat-toggle" type="button">See options →</button>
+        </div>
+
+        <div class="cat-detail" id="detail-aegis">
+          <div class="tier-row">
+            <div><h4>TXL Aegis Scan</h4><p>Full scan + plain-English report, fixes implemented where access is given, re-verified "Secured" report to keep. For any live site — not just ones we built.</p></div>
+            <div class="tier-price"><div class="price-founding" style="color:var(--text);">&#8377;4,000</div></div>
+          </div>
         </div>
       </div>
 
-      <a class="bundle-card reveal" href="contact.html?service=bundle" style="text-decoration:none; color:inherit; cursor:pointer;">
-        <div>
-          <h4>Building a website, dashboard, or chatbot with me?</h4>
-          <p>The Aegis scan, fixes, and verified report ship with it — complimentary, not an upsell. It ships audited and hardened before launch, not patched after. Want it for a site I didn't build? That's the standalone tier above.</p>
-        </div>
-        <div class="bundle-price">Complimentary<span>with any build</span></div>
-      </a>
+      <div class="addons-box reveal" style="margin-top:32px;">
+        <h4>How it works</h4>
+        <div class="addon-row"><span>1. Scoping call — we talk through what you actually need</span><span></span></div>
+        <div class="addon-row"><span>2. 50% deposit to begin, fixed quote confirmed</span><span></span></div>
+        <div class="addon-row"><span>3. Build, with revisions included along the way</span><span></span></div>
+        <div class="addon-row"><span>4. Delivery, remaining 50% due</span><span></span></div>
+      </div>
 
-      <p class="price-note">Every project includes 6 months of free bug-fixing support after launch. Final quote depends on scope.</p>
+      <div class="addons-box reveal">
+        <h4>Add-ons</h4>
+        <div class="addon-row"><span>Extra page</span><span>&#8377;1,000 / page</span></div>
+        <div class="addon-row"><span>Monthly maintenance &amp; support</span><span>&#8377;2,000 / mo</span></div>
+        <div class="addon-row"><span>Priority delivery (rush)</span><span>+20% of project cost</span></div>
+      </div>
+
+      <p class="price-note">Domain &amp; hosting are purchased and owned by you. Final quote depends on scope, confirmed on the scoping call.</p>
       <p class="price-note" style="margin-top:8px;">Need something custom? <a href="contact.html" style="color:var(--cloud);">Talk to us →</a></p>
     </div>
   </div>
@@ -362,6 +483,30 @@
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script src="js/site3d.js" defer></script>
+<script>
+  (function(){
+    var cards = document.querySelectorAll('.cat-card');
+    var details = document.querySelectorAll('.cat-detail');
+    function closeAll(){
+      cards.forEach(function(c){ c.classList.remove('active'); });
+      details.forEach(function(d){ d.classList.remove('open'); });
+    }
+    cards.forEach(function(card){
+      var cat = card.getAttribute('data-cat');
+      var detail = document.getElementById('detail-' + cat);
+      var toggle = card.querySelector('.cat-toggle');
+      toggle.addEventListener('click', function(){
+        var wasOpen = detail.classList.contains('open');
+        closeAll();
+        if (!wasOpen){
+          card.classList.add('active');
+          detail.classList.add('open');
+          detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
