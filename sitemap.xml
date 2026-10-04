@@ -40,4 +40,24 @@
     <lastmod>2026-10-04</lastmod>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/blog.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/blog-3d-bottle-carousel.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/blog-custom-website-vs-page-builder.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://txlstudio.vercel.app/blog-website-security-checklist.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>

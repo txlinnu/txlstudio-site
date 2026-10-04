@@ -436,7 +436,7 @@
 
   /* ---------- Floating WhatsApp button (phones only) ---------- */
   function initWhatsAppFab(){
-    var skip = /contact|onboarding|privacy|terms/.test(location.pathname);
+    var skip = /contact|onboarding|privacy|terms|blog/.test(location.pathname);
     if (skip) return;
     var style = document.createElement('style');
     style.textContent =

@@ -12,17 +12,23 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — TXL Studio</title>
-<meta name="description" content="Terms covering freelance project engagements with TXL Studio — payment, revisions, ownership, and support.">
-<link rel="canonical" href="https://txlstudio.vercel.app/terms.html">
+<title>Blog — Websites, AI &amp; Security Notes | TXL Studio</title>
+<meta name="description" content="Practical notes from building websites, AI tools and security checks: real projects, honest trade-offs and checklists you can use.">
+<link rel="canonical" href="https://txlstudio.vercel.app/blog.html">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Terms of Service — TXL Studio">
-<meta property="og:description" content="Terms covering freelance project engagements with TXL Studio.">
+<meta property="og:title" content="Blog — Websites, AI &amp; Security Notes | TXL Studio">
+<meta property="og:description" content="Practical notes from building websites, AI tools and security checks: real projects, honest trade-offs and checklists you can use.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://txlstudio.vercel.app/terms.html">
-<meta property="og:image" content="https://txlstudio.vercel.app/og-image.png">
+<meta property="og:url" content="https://txlstudio.vercel.app/blog.html">
+<meta property="og:image" content="https://txlstudio.vercel.app/og-blog.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — Websites, AI &amp; Security Notes | TXL Studio">
+<meta name="twitter:description" content="Practical notes from building websites, AI tools and security checks: real projects, honest trade-offs and checklists you can use.">
+<meta name="twitter:image" content="https://txlstudio.vercel.app/og-blog.png">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -117,7 +123,92 @@
   .foot-links{display:flex; gap:16px;}
   .foot-links a{text-decoration:none;}
   .foot-links a:hover{color:var(--text);}
+
+  .crumbs{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--muted); margin-bottom:18px;}
+  .crumbs a{text-decoration:none;} .crumbs a:hover{color:var(--text);}
+  .post-tag{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--gpt); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px;}
+  .article-head{padding-top:70px; padding-bottom:10px;}
+  .article-head h1{font-size:clamp(28px,4.4vw,42px); line-height:1.14; margin-bottom:16px;}
+  .byline{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--muted);}
+  .article{padding-top:26px; padding-bottom:30px;}
+  .article h2{font-size:24px; margin:46px 0 14px; line-height:1.2;}
+  .article p{font-size:16px; color:#b8bfc9; line-height:1.8; margin-bottom:16px;}
+  .article ul, .article ol{margin:0 0 18px 22px; color:#b8bfc9; font-size:16px; line-height:1.8;}
+  .article li{margin-bottom:6px;}
+  .article a{color:var(--gpt); text-decoration:underline;}
+  .article strong{color:var(--text);}
+  .article code{font-family:'JetBrains Mono',monospace; font-size:.86em; background:var(--panel-2); border:1px solid var(--line); padding:2px 6px; border-radius:5px; color:var(--text);}
+  .article pre{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 18px; overflow-x:auto; margin:0 0 20px;}
+  .article pre{scrollbar-color:#3a414c transparent; scrollbar-width:thin;}
+  .article pre code{background:none; border:none; padding:0; font-size:13px; line-height:1.7; white-space:pre;}
+  .callout{border:1px solid var(--gpt); background:var(--gpt-dim); border-radius:12px; padding:18px 22px; margin:26px 0; font-size:15.5px; color:#d7dde4; line-height:1.7;}
+  .callout ul{margin:10px 0 0 20px; font-size:15px;}
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:26px 0;}
+  .twocol .callout{margin:0;}
+  @media(max-width:640px){ .twocol{grid-template-columns:1fr;} }
+  .article-cta{margin:30px 0 10px; padding:28px; border:1px solid var(--line); border-radius:14px; background:var(--panel);}
+  .article-cta h3{font-size:20px; margin-bottom:8px;}
+  .article-cta p{color:var(--muted); font-size:14.5px; margin-bottom:18px;}
+  .article-cta .row{display:flex; gap:12px; flex-wrap:wrap;}
+  .related{padding:34px 0 40px;}
+  .related h2{font-size:18px; margin-bottom:14px;}
+  .posts{display:grid; gap:16px;}
+  .post-card{display:block; text-decoration:none; padding:24px 26px; border:1px solid var(--line); border-radius:14px; background:var(--panel); transition:border-color .2s ease, transform .2s ease;}
+  .post-card:hover{border-color:var(--muted); transform:translateY(-3px);}
+  .post-card .pc-tag{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--gpt); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px;}
+  .post-card h3{font-size:20px; line-height:1.25; margin-bottom:10px;}
+  .post-card p{color:var(--muted); font-size:14.5px; line-height:1.6; margin-bottom:12px;}
+  .post-card .pc-meta{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);}
+  .blog-head{padding-top:70px; padding-bottom:20px;}
+  .blog-head h1{font-size:clamp(30px,4.5vw,44px); margin-bottom:14px;}
+  .blog-head p{color:var(--muted); font-size:16px; max-width:560px;}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "TXL Studio blog",
+  "url": "https://txlstudio.vercel.app/blog.html",
+  "description": "Practical notes from building websites, AI tools and security checks: real projects, honest trade-offs and checklists you can use.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TXL Studio",
+    "url": "https://txlstudio.vercel.app/"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How I built a 3D bottle carousel for Base Fragrances (and the glass effect that didn't work)",
+      "url": "https://txlstudio.vercel.app/blog-3d-bottle-carousel.html",
+      "datePublished": "2026-10-04",
+      "author": {
+        "@type": "Person",
+        "name": "Inayath"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Custom-coded website or a page builder? How to choose, honestly",
+      "url": "https://txlstudio.vercel.app/blog-custom-website-vs-page-builder.html",
+      "datePublished": "2026-10-04",
+      "author": {
+        "@type": "Person",
+        "name": "Inayath"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "A 9-point website security checklist for small businesses",
+      "url": "https://txlstudio.vercel.app/blog-website-security-checklist.html",
+      "datePublished": "2026-10-04",
+      "author": {
+        "@type": "Person",
+        "name": "Inayath"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -151,64 +242,25 @@
   </div>
 </nav>
 
-<div class="wrap page-head">
-  <div class="section-label">// legal</div>
-  <h1>Terms of Service</h1>
-  <div class="updated">Last updated: 21 September 2026</div>
-
-  <div class="tldr">
-    <div class="tldr-label">// in short</div>
-    <ul>
-      <li>50% deposit to start, remaining 50% due before final delivery.</li>
-      <li>Two rounds of revisions included; more than that is billed separately.</li>
-      <li>Full ownership of the code and design transfers to you once you've paid in full.</li>
-      <li>6 months of free bug-fixing support after launch, on every project.</li>
-      <li>If you cancel mid-project, the deposit isn't refunded — but you owe nothing more.</li>
-    </ul>
-  </div>
+<div class="wrap blog-head">
+  <h1>Notes from building websites, AI tools and security checks</h1>
+  <p>Real projects, honest trade-offs and checklists you can use.</p>
 </div>
-
-<div class="wrap doc">
-  <h2>Scope of work</h2>
-  <p>Each project's scope is defined in writing (email or the contact form) before work begins. Changes to scope after work starts may affect the price and timeline — I'll flag this before doing extra work, not after.</p>
-
-  <h2>Payment</h2>
-  <p>50% deposit before work begins, the remaining 50% due before final delivery/handover. Payment methods are arranged directly over email.</p>
-
-  <h2>Revisions</h2>
-  <p>Each project includes two rounds of revisions during development. Additional revision rounds beyond that are billed separately at an hourly rate agreed on beforehand.</p>
-
-  <h2>Timeline</h2>
-  <p>Timelines are estimated at the start of each project based on scope. Delays caused by late feedback or missing content/assets on the client's side may extend the timeline accordingly.</p>
-
-  <h2>Ownership</h2>
-  <p>Full ownership of the final code and design transfers to the client upon receipt of full payment. Until then, TXL Studio retains ownership of the work in progress.</p>
-
-  <h2>Support after launch</h2>
-  <p>Every project includes 6 months of free bug-fixing support after launch, covering defects in what was delivered. New features or scope requested after launch are quoted and billed separately.</p>
-
-  <h2>Cancellation &amp; refunds</h2>
-  <p>If a project is cancelled before completion, the deposit is non-refundable — it covers work already started. No further payment is due for work not yet started.</p>
-
-  <h2>Third-party costs</h2>
-  <p>Domain names, hosting, and any third-party services or licenses required for the project are billed separately unless otherwise agreed in writing.</p>
-
-  <h2>Liability</h2>
-  <p>TXL Studio is not liable for indirect or consequential damages arising from use of the delivered product.</p>
-
-  <div class="note">Questions about these terms: <a href="mailto:help.txlcustomer@gmail.com">help.txlcustomer@gmail.com</a></div>
+<div class="wrap" style="padding-bottom:70px;">
+  <div class="posts"><a class="post-card" href="blog-3d-bottle-carousel.html"><div class="pc-tag">Case study · WebGL</div><h3>How I built a 3D bottle carousel for Base Fragrances (and the glass effect that didn&rsquo;t work)</h3><p>Six perfume bottles, one live WebGL scene at a time, a baked studio environment, and the physically correct glass that looked wrong.</p><div class="pc-meta">4 Oct 2026 · 6 min read</div></a><a class="post-card" href="blog-custom-website-vs-page-builder.html"><div class="pc-tag">Guide</div><h3>Custom-coded website or a page builder? How to choose, honestly</h3><p>Wix, Squarespace and Shopify are the right call for some businesses. Here is when a builder wins, when custom does, and what to ask first.</p><div class="pc-meta">4 Oct 2026 · 5 min read</div></a><a class="post-card" href="blog-website-security-checklist.html"><div class="pc-tag">Security</div><h3>A 9-point website security checklist for small businesses</h3><p>Headers, TLS, rate limits, exposed files, cookies, brute force, HTTP methods, mixed content and email spoofing: how to test each and fix it.</p><div class="pc-meta">4 Oct 2026 · 7 min read</div></a></div>
 </div>
 
 <footer>
   <div class="wrap">
     <div class="contact-row">
-      <a class="btn btn-primary" href="contact.html">Start a project →</a>
-      <a class="btn btn-ghost" href="index.html">← Back to home</a>
+      <a class="btn btn-primary" href="contact.html">Start a project &rarr;</a>
+      <a class="btn btn-ghost" href="index.html">&larr; Back to home</a>
     </div>
     <div class="foot-bottom">
       <span>TXL Studio — AI &amp; Web</span>
       <div class="foot-links">
-        <a href="blog.html">Blog</a><a href="privacy.html">Privacy</a>
+        <a href="blog.html">Blog</a>
+        <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
       </div>
     </div>
