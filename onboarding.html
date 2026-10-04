@@ -281,6 +281,7 @@
         body: new FormData(form)
       }).then(function(res){
         if (!res.ok) throw new Error('Request failed');
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'onboarding' });
         form.reset();
         status.textContent = 'Got it — thanks. I\'ll follow up over email.';
         status.setAttribute('data-state', 'success');

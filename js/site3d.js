@@ -351,6 +351,7 @@
         body: new FormData(form)
       }).then(function(res){
         if (!res.ok) throw new Error('Request failed');
+        track('generate_lead', { form: 'contact', project_type: form.elements.project ? form.elements.project.value : '' });
         form.reset();
         status.textContent = 'Thanks — I’ll get back to you soon.';
         status.setAttribute('data-state', 'success');
@@ -416,8 +417,45 @@
     }
   }
 
+  /* ---------- Analytics events (GA4, no personal data) ---------- */
+  function track(name, params){
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+  function initTracking(){
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var where = a.closest('.wa-fab') ? 'floating_button' : (a.closest('.pr-cta') ? 'package_picker' : 'page');
+      if (href.indexOf('wa.me') !== -1) track('whatsapp_click', { location: where, page_path: location.pathname });
+      else if (href.indexOf('mailto:') === 0) track('email_click', { page_path: location.pathname });
+      else if (href.indexOf('tel:') === 0) track('phone_click', { page_path: location.pathname });
+      else if (a.closest('.pr-cta')) track('picker_start_project', { page_path: location.pathname });
+    });
+  }
+
+  /* ---------- Floating WhatsApp button (phones only) ---------- */
+  function initWhatsAppFab(){
+    var skip = /contact|onboarding|privacy|terms/.test(location.pathname);
+    if (skip) return;
+    var style = document.createElement('style');
+    style.textContent =
+      '.wa-fab{position:fixed; left:16px; bottom:20px; z-index:72; display:none; align-items:center; gap:8px; padding:11px 16px; border-radius:999px;' +
+      ' background:#14b88a; color:#06130e; font:600 13.5px Inter,sans-serif; text-decoration:none; box-shadow:0 12px 30px -10px rgba(20,184,138,0.6);}' +
+      '.wa-fab svg{width:18px; height:18px;}' +
+      '@media(max-width:720px){.wa-fab{display:inline-flex;}}';
+    document.head.appendChild(style);
+    var a = document.createElement('a');
+    a.className = 'wa-fab';
+    a.href = 'https://wa.me/918374367150?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project';
+    a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Chat on WhatsApp');
+    a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp';
+    document.body.appendChild(a);
+  }
+
   function initAll(){
-    initBackground(); initTilt(); initCarousel(); initMobileNav(); initContactForm(); initReveal(); initScrollTop(); initCinematic();
+    initBackground(); initTilt(); initCarousel(); initMobileNav(); initContactForm(); initReveal(); initScrollTop(); initCinematic(); initTracking(); initWhatsAppFab();
   }
 
   if (document.readyState === 'loading') {
