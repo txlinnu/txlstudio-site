@@ -23,13 +23,13 @@
 <meta property="og:description" content="Products and business sites, shipped end to end. See Base Fragrances and BFL Infra.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://txlstudio.vercel.app/work.html">
-<meta property="og:image" content="https://txlstudio.vercel.app/og-image.png">
+<meta property="og:image" content="https://txlstudio.vercel.app/og-work.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Work — TXL Studio">
 <meta name="twitter:description" content="Products and business sites, shipped end to end. See Base Fragrances and BFL Infra.">
-<meta name="twitter:image" content="https://txlstudio.vercel.app/og-image.png">
+<meta name="twitter:image" content="https://txlstudio.vercel.app/og-work.png">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -182,6 +182,11 @@
   }
   .shot-frame .bar{height:34px; background:var(--panel-2); display:flex; align-items:center; padding:0 14px; gap:6px; border-bottom:1px solid var(--line);}
   .shot-frame .bar span{width:10px; height:10px; border-radius:50%; background:#333;}
+  .tour{margin:0 0 40px;}
+  .tour .shot-frame video{display:block; width:100%; height:auto; background:#000;}
+  .tour-cap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-top:12px; font-size:13px; color:var(--muted);}
+  .tour-cap a{color:var(--text); text-decoration:none; border-bottom:1px solid var(--line);}
+  .tour-cap a:hover{border-color:var(--text);}
   .shot-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:16px; margin-bottom:40px;}
   .shot-grid .tall{grid-row:span 2;}
   @media(max-width:800px){ .shot-grid{grid-template-columns:1fr;} .shot-grid .tall{grid-row:auto;} }
@@ -443,6 +448,16 @@
       </div>
     </div>
 
+    <div class="tour">
+      <div class="shot-frame">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <video id="bflTour" muted loop playsinline preload="metadata" poster="images/basefragrances-tour-poster.jpg" aria-label="Screen recording of basefragrances.com: the 3D bottle carousel, featured fragrances, and the cart drawer">
+          <source src="images/basefragrances-tour.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="tour-cap"><span>Screen recording of the live store: 3D bottle carousel, featured fragrances, and the cart.</span><a href="https://basefragrances.com/" target="_blank" rel="noopener">Visit basefragrances.com &#8599;</a></div>
+    </div>
+
     <div class="meta-label" style="margin-bottom:14px;">Key features</div>
     <ul class="feat-list">
       <li>Full e-commerce flow — product catalog, cart, and checkout, built custom rather than on a template platform</li>
@@ -520,7 +535,8 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="section-label">// under the hood</div>
-      <h2>Both ship as real desktop apps, not browser shortcuts</h2>
+      <h2>TXL Cloud and TXL GPT ship as real desktop apps, not browser shortcuts</h2>
+      <p>These are my own two AI chat products, local-first alternatives to hosted AI chat, both live in production. A few notes from building them:</p>
     </div>
     <div class="notes-grid reveal">
       <div class="note tilt">
@@ -569,6 +585,21 @@
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script src="js/site3d.js" defer></script>
+
+<script>
+(function(){
+  var v = document.getElementById('bflTour');
+  if (!v) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) { v.controls = true; return; }
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function(){ v.controls = true; }); }
+      else v.pause();
+    });
+  }, { threshold: 0.4 }).observe(v);
+})();
+</script>
 
 </body>
 </html>

@@ -23,13 +23,13 @@
 <meta property="og:description" content="Have a website, dashboard, or AI tool to build? Let's talk.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://txlstudio.vercel.app/contact.html">
-<meta property="og:image" content="https://txlstudio.vercel.app/og-image.png">
+<meta property="og:image" content="https://txlstudio.vercel.app/og-contact.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact — TXL Studio">
 <meta name="twitter:description" content="Have a website, dashboard, or AI tool to build? Let's talk.">
-<meta name="twitter:image" content="https://txlstudio.vercel.app/og-image.png">
+<meta name="twitter:image" content="https://txlstudio.vercel.app/og-contact.png">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -315,7 +315,16 @@
           select.value = 'Security Report (Aegis)';
         } else if (service === 'bundle'){
           select.value = 'Website + Aegis bundle';
+        } else {
+          var types = { website: 'Website', dashboard: 'Dashboard', chatbot: 'AI Chatbot', other: 'Something else' };
+          if (types[service]) select.value = types[service];
         }
+        var budgetIdx = { lt10: 1, '10-25': 2, '25-50': 3, '50plus': 4 }[params.get('budget')];
+        if (budgetIdx) document.getElementById('cf-budget').selectedIndex = budgetIdx;
+        var timeIdx = { asap: 1, month: 2, '1-3': 3, exploring: 4 }[params.get('timeline')];
+        if (timeIdx) document.getElementById('cf-timeline').selectedIndex = timeIdx;
+        var note = params.get('note');
+        if (note && !msg.value) msg.value = note.slice(0, 400);
         syncMessageField();
       })();
     </script>

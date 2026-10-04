@@ -203,6 +203,7 @@
   }
   .pillar:hover{border-color:var(--muted); transform:translateY(-4px);}
   .pillar-icon{width:40px; height:40px; margin-bottom:22px;}
+  canvas.pillar-icon.icon3d{display:block; width:76px; height:76px; margin:-12px 0 10px -10px;}
   .pillar h3{font-size:19px; margin-bottom:10px;}
   .pillar p{font-size:14px; color:var(--muted); line-height:1.55; margin-bottom:20px;}
   .pillar-link{font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; text-decoration:none;}
@@ -218,18 +219,29 @@
   /* PROCESS timeline */
   .process-track{display:flex; gap:0;}
   .process-step{flex:1; position:relative; padding-right:16px;}
-  .process-step:not(:last-child)::after{content:""; position:absolute; top:17px; left:34px; right:0; height:1px; background:var(--line);}
+  .process-step:not(:last-child)::after, .process-step:not(:last-child)::before{content:""; position:absolute; top:17px; left:34px; right:0; height:1px; background:var(--line);}
+  .process-step:not(:last-child)::before{background:linear-gradient(90deg, var(--gpt), var(--gpt)); z-index:0; transform:scaleX(0); transform-origin:left center; transition:transform .55s ease;}
   .process-num{
     font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; color:var(--gpt);
     width:34px; height:34px; border:1px solid var(--line); border-radius:50%;
     display:flex; align-items:center; justify-content:center; margin-bottom:18px;
     background:var(--bg); position:relative; z-index:1;
+    transition:border-color .4s ease, box-shadow .4s ease, background .4s ease;
   }
   .process-step h3{font-size:15px; margin-bottom:8px;}
   .process-step p{font-size:12.5px; color:var(--muted); line-height:1.5;}
+  .process-track.armed .process-step{opacity:.38; transition:opacity .5s ease; transition-delay:calc(var(--i) * .32s);}
+  .process-track.armed .process-step.lit{opacity:1;}
+  .process-track.armed .process-step.lit .process-num{border-color:var(--gpt); background:var(--gpt-dim); box-shadow:0 0 0 5px var(--gpt-dim); transition-delay:calc(var(--i) * .32s);}
+  .process-track.armed .process-step.lit:not(:last-child)::before{transform:scaleX(1); transition-delay:calc(var(--i) * .32s + .2s);}
   @media(max-width:900px){
     .process-track{flex-direction:column; gap:26px;}
-    .process-step:not(:last-child)::after{display:none;}
+    .process-step{padding-left:56px; padding-right:0; min-height:34px;}
+    .process-num{position:absolute; left:0; top:0; margin:0;}
+    .process-step:not(:last-child)::after, .process-step:not(:last-child)::before{left:17px; right:auto; top:38px; bottom:-22px; width:1px; height:auto;}
+    .process-step:not(:last-child)::before{transform:scaleY(0); transform-origin:top center;}
+    .process-track.armed .process-step.lit:not(:last-child)::before{transform:scaleY(1);}
+    .process-track.armed .process-step, .process-track.armed .process-step.lit .process-num, .process-track.armed .process-step.lit:not(:last-child)::before{transition-delay:0s;}
   }
 
   /* stack strip */
@@ -454,12 +466,12 @@
       <h2>A simple six-step process.</h2>
     </div>
     <div class="process-track reveal">
-      <div class="process-step"><div class="process-num">01</div><h3>Discover</h3><p>Understand what you're building and why.</p></div>
-      <div class="process-step"><div class="process-num">02</div><h3>Design</h3><p>Plan the architecture and the experience.</p></div>
-      <div class="process-step"><div class="process-num">03</div><h3>Build</h3><p>Custom-coded, end to end — no page builders.</p></div>
-      <div class="process-step"><div class="process-num">04</div><h3>Test</h3><p>Rigorously checked before anything ships.</p></div>
-      <div class="process-step"><div class="process-num">05</div><h3>Deploy</h3><p>Live, with security headers in place from day one.</p></div>
-      <div class="process-step"><div class="process-num">06</div><h3>Support</h3><p>6 months of free bug-fixing after launch.</p></div>
+      <div class="process-step" style="--i:0"><div class="process-num">01</div><h3>Discover</h3><p>Understand what you're building and why.</p></div>
+      <div class="process-step" style="--i:1"><div class="process-num">02</div><h3>Design</h3><p>Plan the architecture and the experience.</p></div>
+      <div class="process-step" style="--i:2"><div class="process-num">03</div><h3>Build</h3><p>Custom-coded, end to end — no page builders.</p></div>
+      <div class="process-step" style="--i:3"><div class="process-num">04</div><h3>Test</h3><p>Rigorously checked before anything ships.</p></div>
+      <div class="process-step" style="--i:4"><div class="process-num">05</div><h3>Deploy</h3><p>Live, with security headers in place from day one.</p></div>
+      <div class="process-step" style="--i:5"><div class="process-num">06</div><h3>Support</h3><p>6 months of free bug-fixing after launch.</p></div>
     </div>
   </div>
 </section>
@@ -555,6 +567,145 @@
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script src="js/site3d.js" defer></script>
+
+<script>
+(function(){
+  var track = document.querySelector('.process-track');
+  if (!track || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var steps = Array.prototype.slice.call(track.querySelectorAll('.process-step'));
+  track.classList.add('armed');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) en.target.classList.add('lit');
+      else if (en.boundingClientRect.top > 0) en.target.classList.remove('lit');
+    });
+  }, { rootMargin: '0px 0px -30% 0px', threshold: 0.01 });
+  steps.forEach(function(st){ io.observe(st); });
+})();
+</script>
+
+<script>
+(function(){
+  var T = window.THREE;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.pillar'));
+  if (!T || !window.WebGLRenderingContext || !cards.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SIZE = 152, COLORS = [0xe8582f, 0x14b88a, 0xc9a15a], KINDS = ['build', 'automate', 'secure'];
+
+  var gl;
+  try { gl = new T.WebGLRenderer({ alpha: true, antialias: true }); } catch (e) { return; }
+  gl.setPixelRatio(1); gl.setSize(SIZE, SIZE, false);
+  var scene = new T.Scene();
+  var camera = new T.PerspectiveCamera(35, 1, 0.1, 50);
+  camera.position.set(0, 0, 6.4);
+  var fill = new T.MeshBasicMaterial({ color: 0x13161b, transparent: true, opacity: 0.93 });
+
+  function edges(geo, color, op){
+    return new T.LineSegments(new T.EdgesGeometry(geo, 25), new T.LineBasicMaterial({ color: color, transparent: op != null, opacity: op == null ? 1 : op }));
+  }
+  function solid(w, h, d, color, op, x, y, z){
+    var m = new T.Mesh(new T.BoxGeometry(w, h, d), new T.MeshBasicMaterial({ color: color, transparent: true, opacity: op }));
+    m.position.set(x, y, z); return m;
+  }
+  function seg(a, b, r, mat){
+    var dir = new T.Vector3().subVectors(b, a);
+    var m = new T.Mesh(new T.CylinderGeometry(r, r, dir.length(), 10), mat);
+    m.position.copy(a).addScaledVector(dir, 0.5);
+    m.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), dir.normalize());
+    return m;
+  }
+
+  function make(kind, color){
+    var g = new T.Group(), extra = {};
+    var cm = new T.MeshBasicMaterial({ color: color });
+    if (kind === 'build'){
+      var win = new T.BoxGeometry(2.5, 1.75, 0.14);
+      g.add(new T.Mesh(win, fill), edges(win, color));
+      g.add(solid(2.5, 0.025, 0.16, color, 1, 0, 0.5, 0));
+      [-1.05, -0.85, -0.65].forEach(function(x){ var d = new T.Mesh(new T.SphereGeometry(0.05, 10, 10), cm); d.position.set(x, 0.7, 0.09); g.add(d); });
+      g.add(solid(1.0, 0.62, 0.17, color, 0.35, -0.6, -0.12, 0));
+      g.add(solid(0.85, 0.13, 0.17, color, 0.5, 0.55, 0.1, 0));
+      g.add(solid(0.85, 0.13, 0.17, color, 0.35, 0.55, -0.15, 0));
+      g.add(solid(0.85, 0.13, 0.17, color, 0.25, 0.55, -0.4, 0));
+      var back = edges(win, color, 0.35); back.position.set(0.45, -0.4, -0.6); g.add(back);
+    } else if (kind === 'automate'){
+      var w = 1.2, h = 0.78, r = 0.36, s = new T.Shape();
+      s.moveTo(-w + r, -h); s.lineTo(-0.9, -h); s.lineTo(-1.0, -h - 0.55); s.lineTo(-0.35, -h); s.lineTo(w - r, -h);
+      s.quadraticCurveTo(w, -h, w, -h + r); s.lineTo(w, h - r); s.quadraticCurveTo(w, h, w - r, h);
+      s.lineTo(-w + r, h); s.quadraticCurveTo(-w, h, -w, h - r); s.lineTo(-w, -h + r); s.quadraticCurveTo(-w, -h, -w + r, -h);
+      var bg = new T.ExtrudeGeometry(s, { depth: 0.26, bevelEnabled: false, curveSegments: 12 });
+      bg.translate(0, 0.2, -0.13);
+      g.add(new T.Mesh(bg, fill), edges(bg, color));
+      extra.dots = [-0.55, 0, 0.55].map(function(x){ var d = new T.Mesh(new T.SphereGeometry(0.11, 12, 12), cm); d.position.set(x, 0.2, 0.2); g.add(d); return d; });
+    } else {
+      var sh = new T.Shape();
+      sh.moveTo(0, 1.3); sh.lineTo(0.95, 0.95); sh.lineTo(0.95, 0.1);
+      sh.bezierCurveTo(0.95, -0.55, 0.5, -1.05, 0, -1.3);
+      sh.bezierCurveTo(-0.5, -1.05, -0.95, -0.55, -0.95, 0.1);
+      sh.lineTo(-0.95, 0.95); sh.lineTo(0, 1.3);
+      var sg = new T.ExtrudeGeometry(sh, { depth: 0.3, bevelEnabled: false, curveSegments: 20 });
+      sg.translate(0, 0, -0.15);
+      g.add(new T.Mesh(sg, fill), edges(sg, color));
+      var a = new T.Vector3(-0.4, 0.02, 0.2), b = new T.Vector3(-0.1, -0.28, 0.2), c = new T.Vector3(0.45, 0.35, 0.2);
+      g.add(seg(a, b, 0.065, cm), seg(b, c, 0.065, cm));
+      [a, b, c].forEach(function(p){ var j = new T.Mesh(new T.SphereGeometry(0.065, 10, 10), cm); j.position.copy(p); g.add(j); });
+    }
+    g.visible = false; scene.add(g);
+    return { g: g, extra: extra };
+  }
+
+  var items = cards.map(function(card, i){
+    var svg = card.querySelector('.pillar-icon');
+    if (!svg) return null;
+    var cv = document.createElement('canvas');
+    cv.width = cv.height = SIZE; cv.className = 'pillar-icon icon3d'; cv.setAttribute('aria-hidden', 'true');
+    svg.parentNode.insertBefore(cv, svg); svg.style.display = 'none';
+    var m = make(KINDS[i] || 'build', COLORS[i] || COLORS[0]);
+    var it = { card: card, cv: cv, ctx: cv.getContext('2d'), obj: m, visible: false, hover: false, phase: i * 1.4, kind: KINDS[i] };
+    card.addEventListener('mouseenter', function(){ it.hover = true; });
+    card.addEventListener('mouseleave', function(){ it.hover = false; });
+    return it;
+  }).filter(Boolean);
+
+  function drawOne(it, t){
+    scene.children.forEach(function(c){ c.visible = false; });
+    var g = it.obj.g; g.visible = true;
+    var amp = it.hover ? 1.0 : 0.62, sp = it.hover ? 1.9 : 0.9;
+    g.rotation.y = reduce ? 0.45 : Math.sin(t * sp + it.phase) * amp;
+    g.rotation.x = reduce ? -0.1 : Math.sin(t * 0.6 + it.phase) * 0.12 - 0.06;
+    if (it.obj.extra.dots) it.obj.extra.dots.forEach(function(d, k){ d.scale.setScalar(1 + 0.35 * Math.max(0, Math.sin(t * 4 - k * 0.9))); });
+    gl.render(scene, camera);
+    it.ctx.clearRect(0, 0, SIZE, SIZE);
+    it.ctx.drawImage(gl.domElement, 0, 0, SIZE, SIZE);
+  }
+
+  var clock = new T.Clock(), raf = 0;
+  function frame(){
+    raf = requestAnimationFrame(frame);
+    var t = clock.getElapsedTime();
+    items.forEach(function(it){ if (it.visible) drawOne(it, t); });
+  }
+  function sync(){
+    var any = items.some(function(it){ return it.visible; });
+    var run = any && !document.hidden && !reduce;
+    if (run && !raf) frame();
+    else if (!run && raf){ cancelAnimationFrame(raf); raf = 0; }
+  }
+  items.forEach(function(it){ drawOne(it, 0); });
+
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        items.forEach(function(it){ if (it.card === en.target){ it.visible = en.isIntersecting; if (it.visible && reduce) drawOne(it, 0); } });
+      });
+      sync();
+    }, { threshold: 0.05 });
+    items.forEach(function(it){ io.observe(it.card); });
+  } else { items.forEach(function(it){ it.visible = true; }); sync(); }
+  document.addEventListener('visibilitychange', sync);
+})();
+</script>
 
 </body>
 </html>
