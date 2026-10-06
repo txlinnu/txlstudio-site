@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYEG6Q3ZB3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FYEG6Q3ZB3');
+  /* load gtag.js after the page has painted, so analytics never delays first render */
+  (function(){
+    var loaded = false;
+    function load(){
+      if (loaded) return; loaded = true;
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FYEG6Q3ZB3';
+      document.head.appendChild(s);
+    }
+    window.addEventListener('load', function(){ setTimeout(load, 1000); });
+    ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){ window.addEventListener(ev, load, { once: true, passive: true }); });
+  })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,8 +40,9 @@
 <meta name="twitter:description" content="Nine non-destructive security checks any small business site should pass, how to test each one yourself, and the exact fix for every finding.">
 <meta name="twitter:image" content="https://txlstudio.vercel.app/og-blog-website-security-checklist.png">
 <meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
   :root{
     --bg:#0a0c0f; --panel:#13161b; --panel-2:#181c22; --line:#252a32;
@@ -122,10 +133,12 @@
   .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:28px; border-top:1px solid var(--line); font-size:13px; color:var(--muted);}
   .foot-links{display:flex; gap:16px;}
   .foot-links a{text-decoration:none;}
+  .foot-links a{padding:10px 4px;}
+  @media(max-width:720px){ .foot-links{gap:8px;} .foot-links a{padding:13px 8px;} }
   .foot-links a:hover{color:var(--text);}
 
-  .crumbs{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--muted); margin-bottom:18px;}
-  .crumbs a{text-decoration:none;} .crumbs a:hover{color:var(--text);}
+  .crumbs{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--muted); margin-bottom:6px;}
+  .crumbs a{text-decoration:none; display:inline-block; padding:12px 6px 12px 0;} .crumbs a:hover{color:var(--text);}
   .post-tag{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--gpt); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px;}
   .article-head{padding-top:70px; padding-bottom:10px;}
   .article-head h1{font-size:clamp(28px,4.4vw,42px); line-height:1.14; margin-bottom:16px;}
@@ -247,6 +260,7 @@
     </div>
   </div>
 </nav>
+<main id="main">
 
 <div class="wrap article-head">
   <div class="crumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a></div>
@@ -336,6 +350,7 @@ _dmarc.yourdomain.com. TXT  "v=DMARC1; p=none; rua=mailto:you@yourdomain.com"</c
   </div>
 </div>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="contact-row">
@@ -357,7 +372,7 @@ _dmarc.yourdomain.com. TXT  "v=DMARC1; p=none; rua=mailto:you@yourdomain.com"</c
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eef0f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
 <script src="js/site3d.js" defer></script>
 
 </body>

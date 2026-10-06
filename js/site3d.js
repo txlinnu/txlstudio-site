@@ -455,7 +455,11 @@
   }
 
   function initAll(){
-    initBackground(); initTilt(); initCarousel(); initMobileNav(); initContactForm(); initReveal(); initScrollTop(); initCinematic(); initTracking(); initWhatsAppFab();
+    /* Each feature is isolated: if one fails (e.g. WebGL unavailable), the rest -
+       contact form, mobile nav, reveals - must still start. */
+    [initBackground, initTilt, initCarousel, initMobileNav, initContactForm, initReveal, initScrollTop, initCinematic, initTracking, initWhatsAppFab].forEach(function(fn){
+      try { fn(); } catch (e) { if (window.console) console.warn('[txl] ' + (fn.name || 'init') + ' skipped:', e && e.message); }
+    });
   }
 
   if (document.readyState === 'loading') {

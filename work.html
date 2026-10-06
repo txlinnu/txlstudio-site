@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYEG6Q3ZB3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FYEG6Q3ZB3');
+  /* load gtag.js after the page has painted, so analytics never delays first render */
+  (function(){
+    var loaded = false;
+    function load(){
+      if (loaded) return; loaded = true;
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FYEG6Q3ZB3';
+      document.head.appendChild(s);
+    }
+    window.addEventListener('load', function(){ setTimeout(load, 1000); });
+    ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){ window.addEventListener(ev, load, { once: true, passive: true }); });
+  })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,8 +41,9 @@
 <meta name="twitter:description" content="Products and business sites, shipped end to end. See Base Fragrances and BFL Infra.">
 <meta name="twitter:image" content="https://txlstudio.vercel.app/og-work.png">
 <meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
   :root{
     --bg:#0a0c0f;
@@ -64,6 +75,7 @@
   ::selection{background:var(--cloud); color:#0a0c0f;}
   a{color:inherit;}
   img{max-width:100%; display:block;}
+  :where(img[width][height]){height:auto;}
   .mono{font-family:'JetBrains Mono',monospace;}
   h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em;}
 
@@ -279,6 +291,8 @@
   .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:28px; border-top:1px solid var(--line); font-size:13px; color:var(--muted);}
   .foot-links{display:flex; gap:16px;}
   .foot-links a{text-decoration:none;}
+  .foot-links a{padding:10px 4px;}
+  @media(max-width:720px){ .foot-links{gap:8px;} .foot-links a{padding:13px 8px;} }
   .foot-links a:hover{color:var(--text);}
 </style>
 <script type="application/ld+json">
@@ -338,6 +352,7 @@
   }
 }
 </script>
+<noscript><style>.reveal{opacity:1 !important; transform:none !important;}</style></noscript>
 </head>
 <body>
 
@@ -370,6 +385,7 @@
     </div>
   </div>
 </nav>
+<main id="main">
 
 <section id="work" style="padding-bottom:0; border-bottom:none;">
   <div class="wrap page-head">
@@ -383,7 +399,7 @@
         <div class="carousel3d-ring" id="carouselRing">
           <div class="carousel3d-card" data-target="#case-bfl" data-accent="bfl" style="--i:0;">
             <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
-            <div class="carousel3d-shot"><img src="images/bflinfra_1_hero.webp" alt="BFL Infra homepage hero" draggable="false"></div>
+            <div class="carousel3d-shot"><img width="1100" height="526" src="images/bflinfra_1_hero.webp" alt="BFL Infra homepage hero" draggable="false"></div>
             <div class="carousel3d-info">
               <span class="carousel3d-name">BFL Infra</span>
               <span class="carousel3d-tag">Business site · lead gen</span>
@@ -391,7 +407,7 @@
           </div>
           <div class="carousel3d-card" data-target="#case-base" data-accent="base" style="--i:1;">
             <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
-            <div class="carousel3d-shot"><img src="images/basefragrances_1_hero.webp" alt="Base Fragrances homepage hero" draggable="false"></div>
+            <div class="carousel3d-shot"><img width="1280" height="900" src="images/basefragrances_1_hero.webp" alt="Base Fragrances homepage hero" draggable="false"></div>
             <div class="carousel3d-info">
               <span class="carousel3d-name">Base Fragrances</span>
               <span class="carousel3d-tag">Client project · e-commerce</span>
@@ -399,7 +415,7 @@
           </div>
           <div class="carousel3d-card" data-target="#case-aegis" data-accent="gpt" style="--i:2;">
             <div class="carousel3d-chrome"><span></span><span></span><span></span></div>
-            <div class="carousel3d-shot"><img src="images/aegis_1_hero.webp" alt="TXL Aegis product hero" draggable="false"></div>
+            <div class="carousel3d-shot"><img width="1512" height="733" src="images/aegis_1_hero.webp" alt="TXL Aegis product hero" draggable="false"></div>
             <div class="carousel3d-info">
               <span class="carousel3d-name">TXL Aegis</span>
               <span class="carousel3d-tag">Own product · security scanning</span>
@@ -438,15 +454,15 @@
     <div class="shot-grid">
       <div class="shot-frame tall tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/bflinfra_1_hero.webp" alt="BFL Infra homepage hero">
+        <img width="1100" height="526" loading="lazy" decoding="async" src="images/bflinfra_1_hero.webp" alt="BFL Infra homepage hero">
       </div>
       <div class="shot-frame tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/bflinfra_2_contact.webp" alt="BFL Infra request a proposal form">
+        <img width="1200" height="577" loading="lazy" decoding="async" src="images/bflinfra_2_contact.webp" alt="BFL Infra request a proposal form">
       </div>
       <div class="shot-frame tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/bflinfra_4_team.webp" alt="BFL Infra team section">
+        <img width="1200" height="576" loading="lazy" decoding="async" src="images/bflinfra_4_team.webp" alt="BFL Infra team section">
       </div>
     </div>
 
@@ -493,15 +509,15 @@
     <div class="shot-grid">
       <div class="shot-frame tall tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/basefragrances_1_hero.webp" alt="Base Fragrances homepage hero">
+        <img width="1280" height="900" loading="lazy" decoding="async" src="images/basefragrances_1_hero.webp" alt="Base Fragrances homepage hero">
       </div>
       <div class="shot-frame tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/basefragrances_2_collection.webp" alt="Base Fragrances perfume collection with search and filtering">
+        <img width="1280" height="900" loading="lazy" decoding="async" src="images/basefragrances_2_collection.webp" alt="Base Fragrances perfume collection with search and filtering">
       </div>
       <div class="shot-frame tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/basefragrances_3_product.webp" alt="Base Fragrances Attars and Oud collection">
+        <img width="1280" height="900" loading="lazy" decoding="async" src="images/basefragrances_3_product.webp" alt="Base Fragrances Attars and Oud collection">
       </div>
     </div>
 
@@ -558,15 +574,15 @@
     <div class="shot-grid">
       <div class="shot-frame tall tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/aegis_1_hero.webp" alt="TXL Aegis product hero">
+        <img width="1512" height="733" loading="lazy" decoding="async" src="images/aegis_1_hero.webp" alt="TXL Aegis product hero">
       </div>
       <div class="shot-frame tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/aegis_2_checks.webp" alt="TXL Aegis eight security checks">
+        <img width="1024" height="369" loading="lazy" decoding="async" src="images/aegis_2_checks.webp" alt="TXL Aegis eight security checks">
       </div>
       <div class="shot-frame tilt">
         <div class="bar"><span></span><span></span><span></span></div>
-        <img loading="lazy" decoding="async" src="images/aegis_3_report.webp" alt="TXL Aegis sample security scan report">
+        <img width="1024" height="390" loading="lazy" decoding="async" src="images/aegis_3_report.webp" alt="TXL Aegis sample security scan report">
       </div>
     </div>
 
@@ -615,6 +631,7 @@
   </div>
 </section>
 
+</main>
 <footer style="border-bottom:none;">
   <div class="wrap">
     <div class="reveal">
@@ -640,7 +657,7 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eef0f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
 <script src="js/site3d.js" defer></script>
 
 <script>
