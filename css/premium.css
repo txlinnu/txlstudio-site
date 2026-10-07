@@ -228,3 +228,6 @@ footer .sub{ max-width:620px; }
 footer .foot-bottom{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:22px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
 @media (max-width:860px){ .foot-grid{ grid-template-columns:1fr 1fr; gap:30px; } .fg-brand{ grid-column:1 / -1; } }
 @media (max-width:420px){ .foot-grid{ grid-template-columns:1fr; } }
+
+/* balanced line breaks: no orphan last word on headings */
+h1, h2{ text-wrap:balance; }

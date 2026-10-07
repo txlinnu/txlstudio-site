@@ -52,7 +52,7 @@
   nav{position:sticky; top:0; z-index:50; background:rgba(10,12,15,0.5); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%); border-bottom:1px solid var(--line);}
   nav::after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:1px; background:linear-gradient(90deg, transparent, var(--cloud), var(--gpt), transparent); background-size:200% 100%; opacity:0.55; animation:navshimmer 8s linear infinite;}
   @keyframes navshimmer{ 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
-  nav .wrap{max-width:1080px; display:flex; align-items:center; justify-content:space-between; height:64px; position:relative;}
+  nav .wrap{max-width:1240px; display:flex; align-items:center; justify-content:space-between; height:64px; position:relative;}
   .brand{display:flex; align-items:center; gap:12px; font-family:'Space Grotesk',sans-serif; font-size:17px;}
   .brand-mark{height:34px; width:auto; border-radius:4px; display:block;}
   .brand-divider{width:1px; height:20px; background:var(--line);}
@@ -72,7 +72,7 @@
   .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
   .nav-mobile{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
   .nav-mobile.open{ max-height:280px; border-top:1px solid var(--line); }
-  .nav-mobile .wrap{ display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; height:auto; padding:6px 28px 18px; max-width:1080px; }
+  .nav-mobile .wrap{ display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; height:auto; padding:6px 28px 18px; max-width:1240px; }
   .nav-mobile a{ padding:12px 2px; font-size:15px; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
   .nav-mobile a:hover{ color:var(--text); }
   @media(max-width:720px){ nav ul{display:none;} .nav-toggle{display:flex;} }
@@ -205,7 +205,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/premium.css?v=11">
+<link rel="stylesheet" href="css/premium.css?v=12">
 </head>
 <body>
 
@@ -283,7 +283,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" crossorigin="anonymous" defer></script>
 <script src="js/site3d.js?v=11" defer></script>
-<script src="js/premium.js?v=11" defer></script>
+<script src="js/premium.js?v=12" defer></script>
 
 </body>
 </html>
