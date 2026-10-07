@@ -5,23 +5,23 @@
 <script src="js/analytics.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Building the Base Fragrances 3D Bottle Carousel | TXL Studio</title>
-<meta name="description" content="A look inside the interactive 3D bottle carousel on basefragrances.com: built from primitives in Three.js, with one glass effect I had to abandon.">
-<link rel="canonical" href="https://txlstudio.vercel.app/blog-3d-bottle-carousel.html">
+<title>Base Fragrances Case Study: Custom Luxury Perfume Store | TXL Studio</title>
+<meta name="description" content="How I built a custom luxury perfume e-commerce store for Base Fragrances: bilingual Arabic/English branding, custom cart and checkout, and an interactive 3D bottle carousel.">
+<link rel="canonical" href="https://txlstudio.vercel.app/case-base-fragrances.html">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Building the Base Fragrances 3D Bottle Carousel | TXL Studio">
-<meta property="og:description" content="A look inside the interactive 3D bottle carousel on basefragrances.com: built from primitives in Three.js, with one glass effect I had to abandon.">
+<meta property="og:title" content="Base Fragrances Case Study: Custom Luxury Perfume Store | TXL Studio">
+<meta property="og:description" content="How I built a custom luxury perfume e-commerce store for Base Fragrances: bilingual Arabic/English branding, custom cart and checkout, and an interactive 3D bottle carousel.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://txlstudio.vercel.app/blog-3d-bottle-carousel.html">
-<meta property="og:image" content="https://txlstudio.vercel.app/og-blog-3d-bottle-carousel.png">
+<meta property="og:url" content="https://txlstudio.vercel.app/case-base-fragrances.html">
+<meta property="og:image" content="https://txlstudio.vercel.app/og-case-base-fragrances.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Building the Base Fragrances 3D Bottle Carousel | TXL Studio">
-<meta name="twitter:description" content="A look inside the interactive 3D bottle carousel on basefragrances.com: built from primitives in Three.js, with one glass effect I had to abandon.">
-<meta name="twitter:image" content="https://txlstudio.vercel.app/og-blog-3d-bottle-carousel.png">
+<meta name="twitter:title" content="Base Fragrances Case Study: Custom Luxury Perfume Store | TXL Studio">
+<meta name="twitter:description" content="How I built a custom luxury perfume e-commerce store for Base Fragrances: bilingual Arabic/English branding, custom cart and checkout, and an interactive 3D bottle carousel.">
+<meta name="twitter:image" content="https://txlstudio.vercel.app/og-case-base-fragrances.png">
 <meta name="robots" content="index, follow">
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -158,31 +158,53 @@
   .blog-head{padding-top:70px; padding-bottom:20px;}
   .blog-head h1{font-size:clamp(30px,4.5vw,44px); margin-bottom:14px;}
   .blog-head p{color:var(--muted); font-size:16px; max-width:560px;}
+
+  .cs-wide{max-width:1080px;}
+  .article-head.cs-wide h1, .article-head.cs-wide .byline{max-width:820px;}
+  .lede{font-size:19px; color:#c4cad4; line-height:1.65; max-width:760px; margin:6px 0 0;}
+  .facts{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin:34px 0 8px;}
+  .fact{background:var(--panel); padding:20px 22px;}
+  .fact .k{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px;}
+  .fact .v{font-size:15px; font-weight:600; line-height:1.4;}
+  .fact .v a{color:var(--text); text-decoration:none; border-bottom:1px solid var(--line);}
+  .live-dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--gpt); box-shadow:0 0 8px var(--gpt); margin-right:8px; vertical-align:1px;}
+  @media(max-width:860px){ .facts{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:480px){ .facts{grid-template-columns:1fr;} }
+  .shot-frame{border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#000;}
+  .shot-frame .bar{height:34px; background:var(--panel-2); display:flex; align-items:center; padding:0 14px; gap:6px; border-bottom:1px solid var(--line);}
+  .shot-frame .bar span{width:10px; height:10px; border-radius:50%; background:#333;}
+  .shot-frame video, .shot-frame img{display:block; width:100%; height:auto; background:#000;}
+  .tour{margin:30px 0 6px;}
+  .tour-cap{font-size:13px; color:var(--muted); margin-top:12px;}
+  .decisions{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:26px 0 8px;}
+  .decision{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 24px 22px;}
+  .decision .n{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--cloud); margin-bottom:12px;}
+  .decision h3{font-size:18px; line-height:1.25; margin-bottom:10px;}
+  .decision p{font-size:14.5px; color:var(--muted); line-height:1.65; margin:0;}
+  @media(max-width:700px){ .decisions{grid-template-columns:1fr;} }
+  .screens{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:22px 0 6px;}
+  .screens figcaption{font-size:12.5px; color:var(--muted); margin-top:10px; line-height:1.5;}
+  @media(max-width:860px){ .screens{grid-template-columns:1fr;} }
+  .cs-section h2{font-size:clamp(24px,3vw,30px); letter-spacing:-.03em; margin:56px 0 6px; line-height:1.15;}
+  .cs-section > p.sub{color:var(--muted); font-size:15.5px; max-width:640px; margin:0;}
+  .feat{list-style:none; margin:20px 0 0; padding:0; display:grid; grid-template-columns:repeat(2,1fr); gap:14px 28px;}
+  .feat li{position:relative; padding-left:22px; font-size:15px; color:#c4cad4; line-height:1.6; margin:0;}
+  .feat li::before{content:"\2192"; position:absolute; left:0; color:var(--cloud);}
+  @media(max-width:700px){ .feat{grid-template-columns:1fr;} }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How I built a 3D bottle carousel for Base Fragrances (and the glass effect that didn't work)",
-  "description": "A look inside the interactive 3D bottle carousel on basefragrances.com: built from primitives in Three.js, with one glass effect I had to abandon.",
-  "datePublished": "2026-10-04",
-  "dateModified": "2026-10-04",
-  "image": "https://txlstudio.vercel.app/og-blog-3d-bottle-carousel.png",
-  "mainEntityOfPage": "https://txlstudio.vercel.app/blog-3d-bottle-carousel.html",
-  "author": {
-    "@type": "Person",
-    "name": "Inayath",
-    "url": "https://txlstudio.vercel.app/about.html"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "TXL Studio",
-    "url": "https://txlstudio.vercel.app/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://txlstudio.vercel.app/apple-touch-icon.png"
-    }
-  }
+  "headline": "Base Fragrances: a luxury perfume store, built custom",
+  "description": "How I built a custom luxury perfume e-commerce store for Base Fragrances: bilingual Arabic/English branding, custom cart and checkout, and an interactive 3D bottle carousel.",
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "image": "https://txlstudio.vercel.app/og-case-base-fragrances.png",
+  "mainEntityOfPage": "https://txlstudio.vercel.app/case-base-fragrances.html",
+  "about": { "@type": "WebSite", "name": "Base Fragrances", "url": "https://basefragrances.com/" },
+  "author": { "@type": "Person", "name": "Inayath", "url": "https://txlstudio.vercel.app/about.html" },
+  "publisher": { "@type": "Organization", "name": "TXL Studio", "url": "https://txlstudio.vercel.app/", "logo": { "@type": "ImageObject", "url": "https://txlstudio.vercel.app/apple-touch-icon.png" } }
 }
 </script>
 <script type="application/ld+json">
@@ -190,24 +212,9 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://txlstudio.vercel.app/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://txlstudio.vercel.app/blog.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "How I built a 3D bottle carousel for Base Fragrances (and the glass effect that didn't work)",
-      "item": "https://txlstudio.vercel.app/blog-3d-bottle-carousel.html"
-    }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://txlstudio.vercel.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://txlstudio.vercel.app/work.html" },
+    { "@type": "ListItem", "position": 3, "name": "Base Fragrances case study", "item": "https://txlstudio.vercel.app/case-base-fragrances.html" }
   ]
 }
 </script>
@@ -246,74 +253,74 @@
 </nav>
 <main id="main">
 
-<div class="wrap article-head">
-  <div class="crumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a></div>
-  <div class="post-tag">Case study · WebGL</div>
-  <h1>How I built a 3D bottle carousel for Base Fragrances (and the glass effect that didn&rsquo;t work)</h1>
-  <div class="byline">By Inayath · 4 Oct 2026 · 6 min read</div>
+<div class="wrap cs-wide article-head">
+  <div class="crumbs"><a href="index.html">Home</a> / <a href="work.html">Work</a> / Base Fragrances</div>
+  <div class="post-tag">Case study &middot; E-commerce</div>
+  <h1>Base Fragrances: a luxury perfume store, built custom</h1>
+  <p class="lede">A fragrance brand built around oud, amber and musk needed a real storefront, not a template with a logo on it. This is what I built, and the decisions that shaped it.</p>
+  <div class="byline" style="margin-top:16px;">By Inayath &middot; 6 Oct 2026 &middot; 4 min read</div>
+
+  <div class="facts">
+    <div class="fact"><div class="k">Client</div><div class="v"><a href="https://basefragrances.com/" target="_blank" rel="noopener">Base Fragrances</a></div></div>
+    <div class="fact"><div class="k">What I built</div><div class="v">Storefront, cart &amp; checkout, 3D bottle carousel</div></div>
+    <div class="fact"><div class="k">Stack</div><div class="v">HTML5, CSS3, JavaScript, Three.js</div></div>
+    <div class="fact"><div class="k">Status</div><div class="v"><span class="live-dot"></span>Live in production</div></div>
+  </div>
+
+  <div class="tour">
+    <div class="shot-frame">
+      <div class="bar"><span></span><span></span><span></span></div>
+      <video id="bflTour" muted loop playsinline preload="metadata" poster="images/basefragrances-tour-poster.jpg" aria-label="Screen recording of basefragrances.com: the 3D bottle carousel, featured fragrances, and the cart drawer">
+        <source src="images/basefragrances-tour.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="tour-cap">Screen recording of the live store: 3D bottle carousel, featured fragrances, and the cart.</div>
+  </div>
 </div>
 
-<article class="wrap article">
-<p>The Base Fragrances homepage has six perfume bottles in a row. Drag the one in the middle and it spins, click a neighbour and it takes over. It&rsquo;s real WebGL, not a video or a photo trick, and building it taught me a few things worth writing down.</p>
+<div class="wrap cs-wide cs-section">
+  <h2>The brief</h2>
+  <p class="sub" style="max-width:760px;">Base Fragrances is a Hyderabad-inspired fragrance brand with an Arabic identity (&#1571;&#1587;&#1575;&#1587;, &ldquo;Asas&rdquo;, meaning foundation) woven through the branding. It needed a real storefront that didn&rsquo;t feel like a generic template, with bilingual Arabic and English branding running through the whole experience.</p>
 
-<h2>The brief</h2>
-<p>A luxury fragrance brand needed a storefront that didn&rsquo;t feel like a template, and the obvious centrepiece was the bottle itself. The catch: no 3D scan of the real bottle exists yet. So instead of waiting for one, I built the bottle from basic shapes in Three.js.</p>
+  <h2>What I built</h2>
+  <ul class="feat">
+    <li>Full e-commerce flow: product catalogue, cart and checkout, built custom rather than on a template platform.</li>
+    <li>An interactive 3D &ldquo;Signature Bottles&rdquo; carousel. Drag to explore all six fragrances. A custom interaction, not a plugin.</li>
+    <li>A searchable, filterable collection, organised by fragrance family.</li>
+    <li>Detailed scent profiles for every fragrance, with top, heart and base notes.</li>
+    <li>A dedicated Attars &amp; Oud line: alcohol-free, oil-based fragrances presented as their own collection.</li>
+    <li>A bilingual brand identity with Arabic and English designed together, not just translated.</li>
+  </ul>
 
-<h2>Building a bottle from primitives</h2>
-<p>The real bottle has faceted glass, so the body is an eight-sided prism. One detail matters more than it sounds: a prism with an even number of sides points an <em>edge</em> at the camera by default. Offsetting it by half a segment points a flat <em>face</em> at the camera instead, and that flat face is where the logo and name plate sit.</p>
-<pre><code>const FACETS = 8;
-const FACE_OFFSET = Math.PI / FACETS;   // centres a flat face toward the camera
+  <h2>Decisions that mattered</h2>
+  <div class="decisions">
+    <div class="decision"><div class="n">01</div><h3>Drive the carousel from the store&rsquo;s own data</h3><p>The carousel reads the product list from the store&rsquo;s API, so adding a perfume adds a bottle, with its colour and scent notes. Nothing is hard-coded per product.</p></div>
+    <div class="decision"><div class="n">02</div><h3>Build the bottle from primitives instead of waiting for a scan</h3><p>No 3D scan of the real bottle exists yet, so I built it from basic shapes in Three.js: an eight-sided glass prism, a liquid coloured per fragrance, a metal ring and cap, and a brass name plate drawn on a canvas.</p></div>
+    <div class="decision"><div class="n">03</div><h3>Look right, not physically &ldquo;correct&rdquo;</h3><p>Physically based glass transmission washed out each perfume&rsquo;s colour, so I dropped it. The body is simple alpha-blended glass, and the reflections go where there&rsquo;s no colour identity to lose: the metal cap and ring.</p></div>
+    <div class="decision"><div class="n">04</div><h3>Keep the heavy 3D from blocking the page</h3><p>Only the centre bottle is live; its neighbours are static and dimmed. The 3D starts when the section is near the viewport, falls back to a static image without WebGL, and turns off auto-rotation for visitors who ask for reduced motion.</p></div>
+  </div>
+  <p class="sub" style="margin-top:18px;">The full write-up, including the glass experiment that failed, is in <a href="blog-3d-bottle-carousel.html" style="color:var(--gpt);">How I built the 3D bottle carousel &rarr;</a></p>
 
-new THREE.CylinderGeometry(r, r, height, FACETS, 1, false, FACE_OFFSET);</code></pre>
-<p>Inside the glass is a slightly smaller prism for the liquid, coloured per fragrance from the product data. Some accent colours (a near-black variant, for example) are too dark to read against the page, so the liquid&rsquo;s lightness is lifted when needed. Without that, the bottle looked like an empty silhouette. On top sit a short shoulder, a metal ring and a wide dark cap.</p>
+  <h2>Screens</h2>
+  <div class="screens">
+    <figure><div class="shot-frame tilt"><div class="bar"><span></span><span></span><span></span></div><img width="1280" height="900" loading="lazy" decoding="async" src="images/basefragrances_1_hero.webp" alt="Base Fragrances homepage hero"></div><figcaption>Homepage hero with the Arabic and English brand identity.</figcaption></figure>
+    <figure><div class="shot-frame tilt"><div class="bar"><span></span><span></span><span></span></div><img width="1280" height="900" loading="lazy" decoding="async" src="images/basefragrances_2_collection.webp" alt="Base Fragrances perfume collection with search and filtering"></div><figcaption>The collection, searchable and filterable by fragrance family.</figcaption></figure>
+    <figure><div class="shot-frame tilt"><div class="bar"><span></span><span></span><span></span></div><img width="1280" height="900" loading="lazy" decoding="async" src="images/basefragrances_3_product.webp" alt="Base Fragrances Attars and Oud collection"></div><figcaption>The Attars &amp; Oud line, presented as its own collection.</figcaption></figure>
+  </div>
 
-<h2>A name plate that doesn&rsquo;t look like a sticker</h2>
-<p>The brass name plate is drawn on a 2D canvas and used as a texture: a brushed-metal gradient, a light and dark bevel, and a soft shadow behind the lettering. Two things made it look sharp instead of printed:</p>
-<ul>
-  <li><strong>Resolution.</strong> Drawing it at 2&times; still looked soft on high-DPI screens, so it&rsquo;s drawn at 4&times; and scaled down.</li>
-  <li><strong>Anisotropic filtering.</strong> The facet is usually seen at an angle, and without it the plate and logo blur. It costs almost nothing to turn on.</li>
-</ul>
-<p>The logo also uses a lit material with an alpha cut-out rather than an unlit transparent one. That small change lets it catch the studio lighting like engraved metal instead of reading as a decal.</p>
-
-<h2>The glass effect that didn&rsquo;t work</h2>
-<p>My first plan for the glass was Three.js&rsquo;s physically based <code>transmission</code>, which refracts what&rsquo;s behind it. It was the &ldquo;correct&rdquo; answer, and it failed in practice. Either it washed out each perfume&rsquo;s liquid colour, which defeats the point of personalised bottles, or I turned it down until the colour came back and it stopped looking like glass at all.</p>
-<p>So the body is simple alpha-blended glass, and the reflective environment goes where there&rsquo;s no colour identity to lose: the metal cap and ring. That environment is a tiny custom &ldquo;studio&rdquo; &mdash; a few bright panels, like the softboxes in product photography &mdash; rendered once into a texture and shared by every bottle.</p>
-<div class="callout"><strong>The lesson:</strong> the goal isn&rsquo;t physical accuracy, it&rsquo;s that the product looks right next to the real one. When the correct technique fights the brand&rsquo;s colours, choose the one that serves the product.</div>
-
-<h2>Making six bottles cheap enough to run</h2>
-<p>Each of the six slots has its own renderer ready to go, but only the centre bottle is live. The neighbours are static, scaled down and dimmed. Neighbours sit at roughly 66% and 48% scale with falling opacity, which also sells the depth.</p>
-<p>Switching bottles doesn&rsquo;t tear scenes down and rebuild them. It stops the old bottle&rsquo;s drag handling, starts the new one&rsquo;s, and there is only ever one animation loop running. That avoids a whole class of clean-up bugs.</p>
-<p>The carousel is also data-driven: it reads the product list from the store&rsquo;s API, so adding a perfume adds a bottle, with its colour and scent notes.</p>
-
-<h2>Not blocking the page</h2>
-<p>The Three.js module is around 1.2&nbsp;MB, and setting up six scenes is real CPU work. Originally it ran at page load and held up the rest of the page for several seconds. It now starts when the section is near the viewport, plus a short delayed start after load so there&rsquo;s no empty canvas flash when someone scrolls straight there. The library is also served from the site itself rather than a CDN, so there&rsquo;s one less thing to fail.</p>
-
-<h2>Idle motion that doesn&rsquo;t hide the label</h2>
-<p>A full idle spin shows the name plate to the camera only about once a minute, which is a poor deal for a product whose name is on the label. Instead the bottle sways gently either side of the label-facing angle. Dragging still spins it freely, and the sway resumes a couple of seconds after you let go.</p>
-
-<h2>Fallbacks</h2>
-<p>If WebGL isn&rsquo;t available, the canvas is hidden and a static image takes its place. If the visitor has asked their system for reduced motion, the auto-rotation is switched off.</p>
-
-<h2>Takeaways</h2>
-<ul>
-  <li>Primitives are enough for a convincing product, and you don&rsquo;t need a scan to start.</li>
-  <li>Texture resolution and anisotropic filtering do more for perceived quality than extra geometry.</li>
-  <li>Choose the look that serves the brand over the technique that&rsquo;s physically &ldquo;right&rdquo;.</li>
-  <li>Only one scene needs to be live at a time; keep the others static.</li>
-  <li>Defer heavy setup so it never blocks the first screen.</li>
-</ul>
-
-</article>
+  <h2>Outcome</h2>
+  <p class="sub" style="max-width:760px;">A live, in-production storefront with a custom cart and checkout, an interactive 3D bottle carousel and a dedicated Attars &amp; Oud collection, shipped and running at <a href="https://basefragrances.com/" target="_blank" rel="noopener" style="color:var(--gpt);">basefragrances.com</a>.</p>
+</div>
 
 <div class="wrap">
   <div class="article-cta">
-    <h3>Have something like this to build?</h3>
+    <h3>Want a store or site built like this?</h3>
     <p>Tell me what you&rsquo;re working on and I&rsquo;ll reply with a straight answer on scope, price and timeline.</p>
     <div class="row"><a class="btn btn-primary" href="contact.html">Start a project &rarr;</a><a class="btn btn-ghost" href="pricing.html">See pricing</a></div>
   </div>
   <div class="related">
     <h2>Keep reading</h2>
-    <div class="posts"><a class="post-card" href="case-base-fragrances.html"><div class="pc-tag">Case study</div><h3>Base Fragrances: a luxury perfume store, built custom</h3><p>The full project: bilingual branding, custom cart and checkout, and the decisions behind the 3D carousel.</p><div class="pc-meta">6 Oct 2026 &middot; 4 min read</div></a><a class="post-card" href="blog-custom-website-vs-page-builder.html"><div class="pc-tag">Guide</div><h3>Custom-coded website or a page builder? How to choose, honestly</h3><p>Wix, Squarespace and Shopify are the right call for some businesses. Here is when a builder wins, when custom does, and what to ask first.</p><div class="pc-meta">4 Oct 2026 · 5 min read</div></a><a class="post-card" href="blog-website-security-checklist.html"><div class="pc-tag">Security</div><h3>A 9-point website security checklist for small businesses</h3><p>Headers, TLS, rate limits, exposed files, cookies, brute force, HTTP methods, mixed content and email spoofing: how to test each and fix it.</p><div class="pc-meta">4 Oct 2026 · 7 min read</div></a></div>
+    <div class="posts"><a class="post-card" href="blog-3d-bottle-carousel.html"><div class="pc-tag">Case study &middot; WebGL</div><h3>How I built a 3D bottle carousel for Base Fragrances (and the glass effect that didn&rsquo;t work)</h3><p>Six perfume bottles, one live WebGL scene at a time, a baked studio environment, and the physically correct glass that looked wrong.</p><div class="pc-meta">4 Oct 2026 &middot; 6 min read</div></a><a class="post-card" href="work.html"><div class="pc-tag">Work</div><h3>See all projects</h3><p>Base Fragrances, the BFL Infra concept and TXL Aegis, side by side.</p><div class="pc-meta">TXL Studio</div></a></div>
   </div>
 </div>
 
@@ -343,5 +350,6 @@ new THREE.CylinderGeometry(r, r, height, FACETS, 1, false, FACE_OFFSET);</code><
 <script src="js/site3d.js" defer></script>
 <script src="js/premium.js" defer></script>
 
+<script src="js/bfl-tour.js" defer></script>
 </body>
 </html>

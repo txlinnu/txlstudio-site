@@ -1,0 +1,172 @@
+/* TXL Studio — premium layer. Loaded after each page's own <style>, so it refines rather than replaces.
+   Everything motion-related is disabled under prefers-reduced-motion. */
+
+:root{
+  --ease-out:cubic-bezier(.16,.7,.1,1);
+  --hi:rgba(255,255,255,.055);
+  --shadow-1:0 1px 0 var(--hi) inset, 0 18px 40px -26px rgba(0,0,0,.75);
+  --shadow-2:0 1px 0 rgba(255,255,255,.07) inset, 0 28px 60px -28px rgba(0,0,0,.85);
+}
+
+/* ---------- 1. Page transitions (cross-document View Transitions; ignored where unsupported) ---------- */
+@view-transition{ navigation:auto; }
+nav{ view-transition-name:site-nav; }
+::view-transition-old(root){ animation:vt-out .12s ease both; }
+::view-transition-new(root){ animation:vt-in .26s var(--ease-out) both; }
+@keyframes vt-out{ to{ opacity:0; transform:translateY(-8px); } }
+@keyframes vt-in{ from{ opacity:0; transform:translateY(8px); } }
+::view-transition-group(site-nav){ animation-duration:0s; }
+@media (prefers-reduced-motion:reduce){
+  @view-transition{ navigation:none; }
+}
+
+/* ---------- 2. Cursor spotlight cards ---------- */
+.spot{ position:relative; }
+.spot::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:1;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%), rgba(232,88,47,.12), transparent 62%);
+  opacity:0; transition:opacity .4s ease;
+}
+.spot:not(.check-item)::after{
+  content:""; position:absolute; inset:-1px; border-radius:inherit; padding:1px; pointer-events:none; z-index:2;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.55), rgba(232,88,47,.4) 42%, transparent 72%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+  opacity:0; transition:opacity .4s ease;
+}
+.spot.is-lit::before, .spot.is-lit::after{ opacity:1; }
+@media (hover:none){ .spot::before, .spot::after{ display:none; } }
+
+/* ---------- 3. Buttons: magnetic pull, press, sheen ---------- */
+.btn, .nav-cta{
+  position:relative; overflow:hidden;
+  transform:translate(var(--tx,0px), var(--ty,0px));
+  transition:transform .35s var(--ease-out), box-shadow .3s ease, background .2s ease, border-color .2s ease, filter .2s ease;
+}
+.btn:active, .nav-cta:active{ transform:translate(var(--tx,0px), var(--ty,0px)) scale(.965); transition-duration:.08s; }
+.btn-primary:hover, .nav-cta:hover{ opacity:1; filter:brightness(1.04); box-shadow:0 16px 34px -14px rgba(232,88,47,.6); }
+.btn-primary::after, .nav-cta::after{
+  content:""; position:absolute; top:0; bottom:0; left:-90%; width:55%; pointer-events:none;
+  background:linear-gradient(100deg, transparent, rgba(232,88,47,.3), transparent); transform:skewX(-18deg);
+  transition:left .8s var(--ease-out);
+}
+.btn-primary:hover::after, .nav-cta:hover::after{ left:140%; }
+.btn-ghost:hover{ background:rgba(255,255,255,.04); border-color:#5a6270; }
+.btn:disabled{ cursor:progress; }
+.contact-form .btn:disabled::before{
+  content:""; width:14px; height:14px; border-radius:50%; flex-shrink:0;
+  border:2px solid rgba(10,12,15,.25); border-top-color:#0a0c0f; animation:txl-spin .7s linear infinite;
+}
+@keyframes txl-spin{ to{ transform:rotate(360deg); } }
+
+/* ---------- 4. Typography and rhythm ---------- */
+h1.hero-title{ font-size:clamp(40px, 7.4vw, 88px); line-height:.98; letter-spacing:-.045em; max-width:none; margin-bottom:28px; }
+.hero-sub{ font-size:clamp(16px,1.6vw,19px); line-height:1.6; }
+.page-head h1{ letter-spacing:-.035em; }
+section{ padding:104px 0; }
+.section-head{ margin-bottom:56px; }
+.section-head h2{ font-size:clamp(28px, 4.2vw, 46px); letter-spacing:-.035em; line-height:1.08; }
+@media (max-width:640px){ section{ padding:72px 0; } .section-head{ margin-bottom:38px; } }
+
+/* ---------- 5. Depth: top-lit hairlines + elevation scale ---------- */
+.pillar, .cat-card, .post-card, .report-card, .addons-box, .composer, .stack-grid, .pricing-preview{ box-shadow:var(--shadow-1); }
+.pillar:hover, .cat-card:hover, .post-card:hover{ box-shadow:var(--shadow-2); }
+.shot-frame{ box-shadow:var(--shadow-2); transition:box-shadow .4s ease, transform .2s ease-out; }
+.shot-frame .bar{ position:relative; background:linear-gradient(180deg,#1d2128,#171b21); }
+.shot-frame .bar[data-url]::after{
+  content:attr(data-url); position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  font:500 11px 'JetBrains Mono',monospace; color:var(--muted); background:rgba(0,0,0,.28);
+  border:1px solid var(--line); padding:3px 14px; border-radius:999px; max-width:55%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.shot-frame:hover{ box-shadow:0 36px 70px -30px rgba(0,0,0,.9), 0 0 0 1px #343a44; }
+
+/* ---------- 8. Colour discipline: orange leads, teal is reserved for "success / secure" ---------- */
+nav::after{ background:linear-gradient(90deg, transparent, var(--cloud), transparent); background-size:200% 100%; opacity:.5; }
+nav ul a::after{ background:var(--cloud); }
+.process-track{ --gpt:#e8582f; --gpt-dim:#e8582f22; }
+
+/* ---------- 9. Scroll progress + hero parallax ---------- */
+.txl-progress{
+  position:fixed; top:0; left:0; right:0; height:2px; z-index:90; pointer-events:none;
+  background:linear-gradient(90deg, var(--cloud), #ff9b6b); transform-origin:0 50%; transform:scaleX(0); will-change:transform;
+  opacity:0; transition:opacity .3s ease;
+}
+.txl-progress.on{ opacity:1; }
+html{ scroll-padding-top:80px; }
+
+header.hero .wrap > :not(.hero-stage){ position:relative; z-index:1; }
+header.hero .hero-copy-fade{ will-change:transform, opacity; }
+.hero-stage{
+  position:absolute; z-index:0; top:0; bottom:0; right:max(0px, calc((100% - 1080px) / 2 - 40px)); width:min(560px, 48%);
+  pointer-events:none; opacity:0; transition:opacity 1.2s ease; display:none;
+  will-change:transform;
+}
+.hero-stage::before{
+  content:""; position:absolute; inset:6% -4%; pointer-events:none; filter:blur(14px);
+  background:radial-gradient(closest-side at 55% 48%, rgba(232,88,47,.24), transparent 72%), radial-gradient(38% 34% at 22% 72%, rgba(20,184,138,.13), transparent 72%);
+}
+.hero-stage canvas{ position:relative; }
+.hero-stage.ready{ opacity:1; }
+.hero-stage canvas{ width:100%; height:100%; display:block; }
+@media (min-width:1000px){
+  .hero-stage{ display:block; }
+  header.hero .wrap > :not(.hero-stage){ max-width:600px; }
+  h1.hero-title{ font-size:clamp(52px, 6vw, 76px); }
+}
+
+/* ---------- 10. Forms: focus, success ---------- */
+:focus-visible{ outline:2px solid var(--cloud); outline-offset:3px; }
+input:focus-visible, textarea:focus-visible, select:focus-visible{ outline:none; }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus,
+form input:focus, form textarea:focus, form select:focus{
+  border-color:var(--cloud) !important; box-shadow:0 0 0 4px rgba(232,88,47,.15); transition:box-shadow .2s ease, border-color .2s ease;
+}
+.ok-check{ width:22px; height:22px; vertical-align:-5px; margin-right:8px; }
+.ok-check circle{ fill:none; stroke:var(--gpt); stroke-width:2; stroke-dasharray:63; stroke-dashoffset:63; animation:ok-draw .6s ease forwards; }
+.ok-check path{ fill:none; stroke:var(--gpt); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:20; stroke-dashoffset:20; animation:ok-draw .4s .45s ease forwards; }
+@keyframes ok-draw{ to{ stroke-dashoffset:0; } }
+
+/* ---------- 14. Mobile sticky action bar ---------- */
+.txl-cta-bar{
+  position:fixed; left:12px; right:12px; bottom:max(12px, env(safe-area-inset-bottom)); z-index:72; display:none; gap:8px; padding:8px;
+  background:rgba(19,22,27,.78); backdrop-filter:blur(16px) saturate(140%); -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border:1px solid var(--line); border-radius:16px; box-shadow:0 20px 50px -18px rgba(0,0,0,.8), inset 0 1px 0 var(--hi);
+  transform:translateY(140%); transition:transform .45s var(--ease-out);
+}
+.txl-cta-bar.show{ transform:translateY(0); }
+.txl-cta-bar a{ text-decoration:none; font:600 14px Inter,sans-serif; border-radius:11px; display:flex; align-items:center; justify-content:center; gap:8px; min-height:46px; }
+.txl-cta-bar .cb-main{ flex:1; background:var(--text); color:#0a0c0f; }
+.txl-cta-bar .cb-wa{ width:50px; background:#14b88a; color:#06130e; }
+.txl-cta-bar svg{ width:20px; height:20px; }
+@media (max-width:720px){
+  .txl-cta-bar{ display:flex; }
+  body.has-cta-bar .scroll-top-btn{ bottom:86px; right:18px; width:42px; height:42px; }
+  .wa-fab{ display:none !important; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .btn, .nav-cta, .btn-primary::after, .nav-cta::after, .txl-cta-bar{ transition:none; }
+  .hero-stage{ transform:none; }
+  .ok-check circle, .ok-check path{ animation:none; stroke-dashoffset:0; }
+}
+
+/* tall frame stretches to its neighbours: let the screenshot fill it instead of leaving black */
+.shot-frame.tall{ display:flex; flex-direction:column; }
+.shot-frame.tall img{ flex:1; min-height:0; height:100%; width:100%; object-fit:cover; object-position:30% top; }
+@media (max-width:800px){ .shot-frame.tall img{ flex:none; height:auto; } }
+
+/* ---------- Speed: cheaper paint, quicker reveals ---------- */
+/* the nav hairline used to repaint every frame forever; a static line costs nothing */
+nav::after{ animation:none !important; background:linear-gradient(90deg, transparent, var(--cloud), transparent); opacity:.5; }
+/* content should arrive, not drift in: shorter, lighter fade-ins */
+.reveal{ transform:translateY(22px); transition:opacity .65s var(--ease-out), transform .65s var(--ease-out); }
+.reveal.in-view{ transform:translateY(0); }
+@media (prefers-reduced-motion:reduce){ .reveal{ transform:none; transition:none; } }
+/* keep static layers off the main compositor path */
+.cine-vignette, .cine-grain{ contain:strict; }
+
+/* ---------- Brand lockup: TXL mark and "Studio" share one visual height and weight ---------- */
+.brand{ font-size:22px; gap:12px; }
+.brand-mark{ height:30px; }
+.brand-divider{ height:24px; }
+.brand-word{ color:#b3bac6; font-weight:500; letter-spacing:.2px; }
