@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function(){
+/* Pillar icons: three small 3D icons drawn through one shared WebGL renderer.
+   Building that renderer is the heaviest thing on the page, so it waits until the cards are near the viewport
+   (each card ships with an SVG icon that shows meanwhile) and then runs in idle time. */
+function initPillarIcons(){
   var T = window.THREE;
   var cards = Array.prototype.slice.call(document.querySelectorAll('.pillar'));
   if (!T || !window.WebGLRenderingContext || !cards.length) return;
@@ -116,4 +119,22 @@ document.addEventListener('DOMContentLoaded', function(){
     items.forEach(function(it){ io.observe(it.card); });
   } else { items.forEach(function(it){ it.visible = true; }); sync(); }
   document.addEventListener('visibilitychange', sync);
-});
+}
+
+(function(){
+  var started = false;
+  function go(){
+    if (started) return; started = true;
+    if (window.requestIdleCallback) window.requestIdleCallback(initPillarIcons, { timeout: 1500 });
+    else setTimeout(initPillarIcons, 200);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var cards = document.querySelectorAll('.pillar');
+    if (!cards.length) return;
+    if (!('IntersectionObserver' in window)) { go(); return; }
+    var io = new IntersectionObserver(function(entries){
+      if (entries.some(function(e){ return e.isIntersecting; })) { io.disconnect(); go(); }
+    }, { rootMargin: '300px 0px' });
+    cards.forEach(function(c){ io.observe(c); });
+  });
+})();

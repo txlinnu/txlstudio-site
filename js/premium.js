@@ -8,7 +8,7 @@
   /* ---------- Cursor spotlight on cards ---------- */
   function initSpotlight(){
     if (!finePointer || reduce) return;
-    var SEL = '.pillar, .cat-card, .post-card, .report-card, .addons-box, .check-item, .stack-item, .shot-frame';
+    var SEL = '.pillar, .cat-card, .post-card, .report-card, .addons-box, .check-item, .stack-item, .shot-frame, .wf-card, .next-steps, .glance';
     var cards = document.querySelectorAll(SEL);
     if (!cards.length) return;
     cards.forEach(function(c){ c.classList.add('spot'); });
