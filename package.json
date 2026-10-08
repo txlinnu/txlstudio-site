@@ -1,0 +1,9 @@
+{
+  "name": "txl-studio-site",
+  "private": true,
+  "type": "module",
+  "description": "TXL Studio static site. No dependencies: /api/chat is a dependency-free serverless function (needs only the free GROQ_API_KEY env var for optional AI answers).",
+  "engines": {
+    "node": ">=20"
+  }
+}

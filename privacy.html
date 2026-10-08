@@ -120,6 +120,7 @@
   .foot-links a:hover{color:var(--text);}
 </style>
 <link rel="stylesheet" href="css/premium.css?v=12">
+<link rel="stylesheet" href="css/chat.css?v=3">
 </head>
 <body>
 
@@ -157,14 +158,14 @@
 <div class="wrap page-head">
   <div class="section-label">// legal</div>
   <h1>Privacy Policy</h1>
-  <div class="updated">Last updated: 21 September 2026</div>
+  <div class="updated">Last updated: 9 October 2026</div>
 
   <div class="tldr">
     <div class="tldr-label">// in short</div>
     <ul>
-      <li>We collect what you type into the contact form (name, email, project details) and basic Google Analytics data (which pages you visit).</li>
+      <li>We collect what you type into the contact form (name, email, project details), basic Google Analytics data (which pages you visit), and what you type into the chat assistant if you use it.</li>
       <li>We use it only to respond to you and to understand which pages are useful — never sold, never shared with advertisers.</li>
-      <li>Two services touch your data: Formspree (delivers your form submission to our email) and Google Analytics (site usage stats).</li>
+      <li>Up to three services can touch your data: Formspree (delivers your form submission to our email), Google Analytics (site usage stats), and Groq (an AI service, used only when a chat question can't be answered automatically).</li>
       <li>Email us anytime to have your data deleted.</li>
     </ul>
   </div>
@@ -175,8 +176,9 @@
   <p>This is a plain-language summary of what TXL Studio collects on this site and why — not a substitute for legal advice. If you have questions, email <a href="mailto:help.txlcustomer@gmail.com">help.txlcustomer@gmail.com</a> directly.</p>
 
   <h2>What we collect</h2>
-  <p>Two sources of data on this site:</p>
+  <p>Three sources of data on this site:</p>
   <ul>
+    <li><strong>The chat assistant.</strong> If you use the assistant, most questions are answered automatically on this site, with nothing sent anywhere else. If a question needs more than that, the message you typed may be sent to an AI service (Groq) to write a reply. Nothing is stored on this site's servers, and the conversation stays in your browser's session until you close the tab. Please don't type passwords, payment details or other sensitive information into it. If you choose to send your details to Inayath from the chat, that goes through the same form service as the contact form (below).</li>
     <li><strong>The contact form.</strong> Name, email, company/business (optional), project type, approximate budget (optional), timeline (optional), and whatever you write in the message field.</li>
     <li><strong>Google Analytics.</strong> Standard usage data — pages visited, approximate location, device/browser type, and referring site. This is aggregate and isn't tied to your name unless you also submit the contact form.</li>
   </ul>
@@ -187,6 +189,7 @@
   <h2>Who else sees it</h2>
   <ul>
     <li><strong>Formspree</strong> processes contact form submissions and forwards them by email. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree's privacy policy</a> for how they handle data in transit.</li>
+    <li><strong>Groq</strong> may process a chat message that the automatic answers can't handle, per <a href="https://groq.com/privacy-policy" target="_blank" rel="noopener">Groq's privacy policy</a>.</li>
     <li><strong>Google Analytics</strong> processes usage data per <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
   </ul>
   <p>Nobody else. No ad networks, no data brokers, no resale.</p>
@@ -239,6 +242,7 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" crossorigin="anonymous" defer></script>
 <script src="js/site3d.js?v=11" defer></script>
 <script src="js/premium.js?v=12" defer></script>
+<script src="js/chat-widget.js?v=5" defer></script>
 
 </body>
 </html>
