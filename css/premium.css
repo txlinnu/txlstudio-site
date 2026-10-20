@@ -231,3 +231,13 @@ footer .foot-bottom{ display:flex; justify-content:space-between; gap:12px; flex
 
 /* balanced line breaks: no orphan last word on headings */
 h1, h2{ text-wrap:balance; }
+
+/* ---------- Question-and-answer blocks (home, Aegis) ---------- */
+.qa{ max-width:860px; }
+.qa details{ border:1px solid var(--line); border-radius:14px; background:var(--panel-2); margin-bottom:12px; padding:0 24px; transition:border-color .2s ease; }
+.qa details[open]{ border-color:var(--muted); }
+.qa summary{ list-style:none; cursor:pointer; padding:20px 0; font-weight:600; font-size:16.5px; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.qa summary::-webkit-details-marker{ display:none; }
+.qa summary::after{ content:"+"; font-family:'JetBrains Mono',monospace; font-size:22px; color:var(--cloud); flex-shrink:0; }
+.qa details[open] summary::after{ content:"\2212"; }
+.qa details p{ font-size:15.5px; color:#b8bfc9; line-height:1.7; padding:0 0 22px; max-width:760px; }

@@ -1,0 +1,42 @@
+# TXL Studio
+
+> TXL Studio is a one-person web and AI studio in India, run by Inayath, a developer with a cybersecurity background. It builds custom websites, online stores, dashboards and AI chatbots, coded from scratch rather than on page-builder templates, and runs TXL Aegis, a security-scanning product for live websites.
+
+Everything below is stated on the linked pages. Prices are in Indian rupees (INR) and are "starting" prices; the final quote is confirmed on a scoping call.
+
+## Services and pricing
+
+- [Pricing](https://txlstudio.vercel.app/pricing.html): packages, founding-client prices and regular prices, add-ons, the four-step process, what the free support covers, and an FAQ
+- [TXL Aegis](https://txlstudio.vercel.app/aegis.html): a plain-English security report for any live website (authorized, non-destructive checks only), from 4,000 INR standalone and free with every build
+
+## Work
+
+- [Work](https://txlstudio.vercel.app/work.html): Base Fragrances (a live e-commerce store for a real client) and BFL Infra (a concept project for a fictional engineering firm)
+- [Case study: Base Fragrances](https://txlstudio.vercel.app/case-base-fragrances.html): a luxury perfume store with custom checkout, bilingual Arabic and English branding, and an interactive 3D bottle carousel
+
+## Guides
+
+- [How much does a website cost in India?](https://txlstudio.vercel.app/blog-website-cost-india.html): what drives the price, what is usually not included, and questions to ask before accepting a quote
+- [Custom website or page builder?](https://txlstudio.vercel.app/blog-custom-website-vs-page-builder.html): when each is the better choice
+- [A 9-point website security checklist](https://txlstudio.vercel.app/blog-website-security-checklist.html): how small businesses can test and fix common security gaps
+- [How the 3D bottle carousel was built](https://txlstudio.vercel.app/blog-3d-bottle-carousel.html): the engineering decisions behind the Base Fragrances carousel
+
+## About and contact
+
+- [About](https://txlstudio.vercel.app/about.html): who runs TXL Studio and how the work is done
+- [Contact](https://txlstudio.vercel.app/contact.html): the enquiry form, WhatsApp and email
+
+## Key facts
+
+- Starting prices: Starter website 5,000 INR, Standard website 12,000 INR, online store 25,000 INR, custom dashboard 15,000 INR, basic AI chatbot 8,000 INR, advanced AI chatbot 20,000 INR, TXL Aegis report 4,000 INR.
+- Payment: 50% deposit to begin, with the remaining 50% due before final delivery. Two rounds of revisions are included.
+- Support: 6 months of free bug-fix support after launch, with a response within 2 working days. New features and design changes are quoted separately.
+- Ownership: full ownership of the final code and design transfers to the client once paid in full.
+- Domain and hosting are not included; the client buys and owns them.
+- Every website, dashboard or chatbot build includes a free TXL Aegis security check.
+
+## Optional
+
+- [Blog](https://txlstudio.vercel.app/blog.html): all guides and case studies
+- [Privacy](https://txlstudio.vercel.app/privacy.html)
+- [Terms](https://txlstudio.vercel.app/terms.html)

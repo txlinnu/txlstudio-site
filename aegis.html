@@ -307,14 +307,88 @@
   "name": "TXL Aegis",
   "serviceType": "Website security scanning",
   "description": "TXL Aegis scans live sites for fixable security gaps — missing headers, weak rate limits, exposed files — and delivers a plain-English grade and fix list. Complimentary with any TXL Studio build; standalone reports available for any site.",
-  "provider": { "@type": "Organization", "name": "TXL Studio", "url": "https://txlstudio.vercel.app/" },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://txlstudio.vercel.app/#organization",
+    "name": "TXL Studio",
+    "url": "https://txlstudio.vercel.app/"
+  },
   "areaServed": "IN",
-  "offers": { "@type": "Offer", "price": "4000", "priceCurrency": "INR", "url": "https://txlstudio.vercel.app/aegis.html" }
+  "offers": {
+    "@type": "Offer",
+    "price": "4000",
+    "priceCurrency": "INR",
+    "url": "https://txlstudio.vercel.app/aegis.html"
+  }
 }
 </script>
 <noscript><style>.reveal{opacity:1 !important; transform:none !important;}</style></noscript>
 <link rel="stylesheet" href="css/premium.css?v=12">
 <link rel="stylesheet" href="css/chat.css?v=3">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is TXL Aegis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TXL Aegis is a security check for live websites. It finds real, fixable gaps and turns them into a plain-English report with an A to F grade and a prioritized fix list."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will a scan break my website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Aegis uses read-only checks and a handful of bounded probes. It never exploits anything and never guesses real passwords."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you scan sites without permission?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every scan needs confirmed permission from the site owner before it runs, with no exceptions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I get after a scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A grade and a prioritized list of fixes, each with the exact config line to change, which you can export as a PDF. Fixes are implemented where you give access, and a re-scan produces a \"Secured\" report you can keep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standalone TXL Aegis report starts at ₹4,000 for any live site, whether or not I built it. It is included free with any website, dashboard or chatbot build."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a penetration test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is not a penetration-testing toolkit and doesn't claim to catch everything. It is a fast, honest first pass that every live site should get."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About fifteen areas, including security headers and CSP quality, HSTS and HTTPS, CORS, cookies, third-party scripts and SRI, outdated libraries, email spoofing (SPF, DKIM and DMARC), DNS and mail hardening, exposed files, TLS and rate limiting."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -494,6 +568,21 @@
         <div class="amt">&#8377;4,000<span>starting</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal"><h2>TXL Aegis: common questions</h2></div>
+    <div class="qa reveal">
+      <details><summary>What is TXL Aegis?</summary><p>TXL Aegis is a security check for live websites. It finds real, fixable gaps and turns them into a plain-English report with an A to F grade and a prioritized fix list.</p></details>
+      <details><summary>Will a scan break my website?</summary><p>No. Aegis uses read-only checks and a handful of bounded probes. It never exploits anything and never guesses real passwords.</p></details>
+      <details><summary>Do you scan sites without permission?</summary><p>No. Every scan needs confirmed permission from the site owner before it runs, with no exceptions.</p></details>
+      <details><summary>What do I get after a scan?</summary><p>A grade and a prioritized list of fixes, each with the exact config line to change, which you can export as a PDF. Fixes are implemented where you give access, and a re-scan produces a "Secured" report you can keep.</p></details>
+      <details><summary>How much does it cost?</summary><p>A standalone TXL Aegis report starts at ₹4,000 for any live site, whether or not I built it. It is included free with any website, dashboard or chatbot build.</p></details>
+      <details><summary>Is this a penetration test?</summary><p>No. It is not a penetration-testing toolkit and doesn't claim to catch everything. It is a fast, honest first pass that every live site should get.</p></details>
+      <details><summary>What does it check?</summary><p>About fifteen areas, including security headers and CSP quality, HSTS and HTTPS, CORS, cookies, third-party scripts and SRI, outdated libraries, email spoofing (SPF, DKIM and DMARC), DNS and mail hardening, exposed files, TLS and rate limiting.</p></details>
+      </div>
   </div>
 </section>
 
